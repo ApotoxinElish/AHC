@@ -23,6 +23,9 @@ public class ThisCard : MonoBehaviour
     public Sprite thisSprite;
     public Image thatImage;
 
+    public Image frame;
+
+
 
 
     // Start is called before the first frame update
@@ -39,9 +42,7 @@ public class ThisCard : MonoBehaviour
         cost = thisCard[0].cost;
         power = thisCard[0].power;
         cardDescription = thisCard[0].cardDescription;
-
         thisSprite = thisCard[0].thisImage;
-
 
         nameText.text = "" + cardName;
         costText.text = "" + cost;
@@ -49,8 +50,6 @@ public class ThisCard : MonoBehaviour
         descriptionText.text = " " + cardDescription;
 
         thatImage.sprite = thisSprite;
-
-
 
 
     }
