@@ -8,10 +8,10 @@ public class CardDataBase : MonoBehaviour
 
     void Awake()
     {
-        cardList.Add(new Card(0, "None", 0, 0, "None"));
-        cardList.Add(new Card(1, "Elf", 2, 1000, "It's Elf"));
-        cardList.Add(new Card(2, "Dwarf", 3, 3000, "It's Dwarf"));
-        cardList.Add(new Card(3, "Human", 5, 6000, "It's Human"));
-        cardList.Add(new Card(4, "Demon", 1, 1000, "It's Demon"));
+        cardList.Add(new Card(0, "None", 0, 0, "None", Resources.Load<Sprite>("1")));
+        cardList.Add(new Card(1, "Elf", 2, 1000, "It's Elf", Resources.Load<Sprite>("1")));
+        cardList.Add(new Card(2, "Dwarf", 3, 3000, "It's Dwarf", Resources.Load<Sprite>("1")));
+        cardList.Add(new Card(3, "Human", 5, 6000, "It's Human", Resources.Load<Sprite>("1")));
+        cardList.Add(new Card(4, "Demon", 1, 1000, "It's Demon", Resources.Load<Sprite>("1")));
     }
 }
