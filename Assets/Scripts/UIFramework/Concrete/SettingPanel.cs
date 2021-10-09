@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class SettingPanel : BasePanel
 {
-    static readonly string path = "Prefabs/UI/Panel/SettingPanel";
+    static readonly string path = "Prefabs/UI/Panel/OptionsPanel";
 
     public SettingPanel() : base(new UIType(path)) { }
 

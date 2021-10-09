@@ -34,6 +34,7 @@ public class UIManager
             return dicUI[type];
         GameObject ui = GameObject.Instantiate(Resources.Load<GameObject>(type.Path), parent.transform);
         ui.name = type.Name;
+        dicUI.Add(type, ui);
         return ui;
     }
 
@@ -45,7 +46,7 @@ public class UIManager
     {
         if (dicUI.ContainsKey(type))
         {
-            DestroyUI(type);
+            GameObject.Destroy(dicUI[type]);
             dicUI.Remove(type);
         }
     }
