@@ -40,7 +40,7 @@ public class MainScene : SceneState
     /// <param name="load"></param>
     private void SceneLoaded(Scene scene, LoadSceneMode load)
     {
-        // panelManager.Push(new ());
+        panelManager.Push(new MainPanel());
         Debug.Log($"{sceneName} scene loaded!");
     }
 }

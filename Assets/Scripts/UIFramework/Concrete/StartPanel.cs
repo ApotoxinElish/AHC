@@ -20,5 +20,10 @@ public class StartPanel : BasePanel
             Debug.Log("The More button was clicked");
             PanelManager.Push(new SettingPanel());
         });
+        UITool.GetOrAddComponentInChildren<Button>("BtnNewGame").onClick.AddListener(() =>
+        {
+            // Click events can be written in here
+            GameRoot.Instance.SceneSystem.SetScene(new MainScene());
+        });
     }
 }
