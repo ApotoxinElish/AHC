@@ -19,6 +19,10 @@ public abstract class BasePanel
     /// Panel manager
     /// </summary>
     public PanelManager PanelManager { get; private set; }
+    /// <summary>
+    /// The UI manager
+    /// </summary>
+    public UIManager UIManager { get; private set; }
 
     public BasePanel(UIType uIType)
     {
@@ -44,6 +48,15 @@ public abstract class BasePanel
     }
 
     /// <summary>
+    /// Initialize the UI manager
+    /// </summary>
+    /// <param name="uIManager"></param>
+    public void Initialize(UIManager uIManager)
+    {
+        UIManager = uIManager;
+    }
+
+    /// <summary>
     /// Operations performed when the UI enters are performed only once
     /// </summary>
     public virtual void OnEnter() { }
@@ -51,15 +64,24 @@ public abstract class BasePanel
     /// <summary>
     /// Actions performed when the UI pauses
     /// </summary>
-    public virtual void OnPause() { }
+    public virtual void OnPause()
+    {
+        UITool.GetOrAddComponent<CanvasGroup>().blocksRaycasts = false;
+    }
 
     /// <summary>
     /// Actions performed while the UI continues
     /// </summary>
-    public virtual void OnResume() { }
+    public virtual void OnResume()
+    {
+        UITool.GetOrAddComponent<CanvasGroup>().blocksRaycasts = true;
+    }
 
     /// <summary>
     /// Operations performed when the UI exits
     /// </summary>
-    public virtual void OnExit() { }
+    public virtual void OnExit()
+    {
+        UIManager.DestroyUI(UIType);
+    }
 }

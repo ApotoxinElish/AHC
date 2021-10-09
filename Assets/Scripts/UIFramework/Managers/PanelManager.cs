@@ -38,6 +38,7 @@ public class PanelManager
         GameObject panelGo = uIManager.GetSingleUI(nextPanel.UIType);
         nextPanel.Initialize(new UITool(panelGo));
         nextPanel.Initialize(this);
+        nextPanel.Initialize(uIManager);
         nextPanel.OnEnter();
     }
 
