@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class SettingPanel : BasePanel
+public class OptionsPanel : BasePanel
 {
     static readonly string path = "Prefabs/UI/Panel/OptionsPanel";
 
-    public SettingPanel() : base(new UIType(path)) { }
+    public OptionsPanel() : base(new UIType(path)) { }
 
     public override void OnEnter()
     {

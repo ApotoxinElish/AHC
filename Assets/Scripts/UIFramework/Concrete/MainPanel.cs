@@ -25,7 +25,7 @@ public class MainPanel : BasePanel
         });
         UITool.GetOrAddComponentInChildren<Button>("BtnOptions").onClick.AddListener(() =>
         {
-            Push(new SettingPanel());
+            Push(new OptionsPanel());
         });
     }
 }

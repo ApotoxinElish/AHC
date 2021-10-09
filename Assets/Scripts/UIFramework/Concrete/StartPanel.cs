@@ -18,7 +18,7 @@ public class StartPanel : BasePanel
         {
             // Click events can be written in here
             Debug.Log("The More button was clicked");
-            PanelManager.Push(new SettingPanel());
+            PanelManager.Push(new OptionsPanel());
         });
         UITool.GetOrAddComponentInChildren<Button>("BtnNewGame").onClick.AddListener(() =>
         {
