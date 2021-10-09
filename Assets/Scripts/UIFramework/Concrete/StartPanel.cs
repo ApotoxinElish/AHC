@@ -14,9 +14,11 @@ public class StartPanel : BasePanel
 
     public override void OnEnter()
     {
-        UITool.GetOrAddComponentInChildren<Button>("").onClick.AddListener(() =>
+        UITool.GetOrAddComponentInChildren<Button>("BtnMore").onClick.AddListener(() =>
         {
             // Click events can be written in here
+            Debug.Log("The More button was clicked");
+            PanelManager.Push(new SettingPanel());
         });
     }
 }

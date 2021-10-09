@@ -15,6 +15,10 @@ public abstract class BasePanel
     /// UI Management tools
     /// </summary>
     public UITool UITool { get; private set; }
+    /// <summary>
+    /// Panel manager
+    /// </summary>
+    public PanelManager PanelManager { get; private set; }
 
     public BasePanel(UIType uIType)
     {
@@ -28,6 +32,15 @@ public abstract class BasePanel
     public void Initialize(UITool tool)
     {
         UITool = tool;
+    }
+
+    /// <summary>
+    /// Initialize the panel manager
+    /// </summary>
+    /// <param name="panelManager"></param>
+    public void Initialize(PanelManager panelManager)
+    {
+        PanelManager = panelManager;
     }
 
     /// <summary>
