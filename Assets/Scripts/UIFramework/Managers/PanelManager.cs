@@ -48,11 +48,19 @@ public class PanelManager
     public void Pop()
     {
         if (stackPanel.Count > 0)
-        {
-            stackPanel.Peek().OnExit();
-            stackPanel.Pop();
-        }
+            stackPanel.Pop().OnExit();
         if (stackPanel.Count > 0)
             stackPanel.Peek().OnResume();
+    }
+
+    /// <summary>
+    /// Execute OnExit() for all panels
+    /// </summary>
+    public void PopAll()
+    {
+        while (stackPanel.Count > 0)
+        {
+            stackPanel.Pop().OnExit();
+        }
     }
 }

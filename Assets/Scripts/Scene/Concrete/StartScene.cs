@@ -25,12 +25,14 @@ public class StartScene : SceneState
         else
         {
             panelManager.Push(new StartPanel());
+            GameRoot.Instance.SetAction(panelManager.Push);
         }
     }
 
     public override void OnExit()
     {
         SceneManager.sceneLoaded -= SceneLoaded;
+        panelManager.PopAll();
     }
 
     /// <summary>
@@ -41,6 +43,7 @@ public class StartScene : SceneState
     private void SceneLoaded(Scene scene, LoadSceneMode load)
     {
         panelManager.Push(new StartPanel());
+        GameRoot.Instance.SetAction(panelManager.Push);
         Debug.Log($"{sceneName} scene loaded!");
     }
 }
