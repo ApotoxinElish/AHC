@@ -11,9 +11,9 @@ public class SettingPanel : BasePanel
 
     public override void OnEnter()
     {
-        UITool.GetOrAddComponentInChildren<Button>("BtnMore").onClick.AddListener(() =>
-        {
+        // UITool.GetOrAddComponentInChildren<Button>("BtnMore").onClick.AddListener(() =>
+        // {
 
-        });
+        // });
     }
 }
