@@ -51,6 +51,23 @@ public class ThisCard : MonoBehaviour
 
         thatImage.sprite = thisSprite;
 
+        if (thisCard[0].color == "Red")
+        {
+            frame.GetComponent<Image>().color = new Color32(255, 0, 0, 255);
+        }
+        if (thisCard[0].color == "Blue")
+        {
+            frame.GetComponent<Image>().color = new Color32(0, 0, 255, 255);
+        }
+        if (thisCard[0].color == "Yellow")
+        {
+            frame.GetComponent<Image>().color = new Color32(255, 255, 0, 255);
+        }
+        if (thisCard[0].color == "Purple")
+        {
+            frame.GetComponent<Image>().color = new Color32(255, 0, 255, 255);
+        }
+
 
     }
 }
