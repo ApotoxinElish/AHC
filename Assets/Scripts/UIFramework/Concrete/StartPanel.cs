@@ -14,16 +14,33 @@ public class StartPanel : BasePanel
 
     public override void OnEnter()
     {
-        UITool.GetOrAddComponentInChildren<Button>("BtnMore").onClick.AddListener(() =>
-        {
-            //点击事件可以写在这里面
-            Debug.Log("The More button was clicked");
-            PanelManager.Push(new OptionsPanel());
-        });
+        GameObject main_menu = UITool.FindChildGameObject("Main Menu");
+        GameObject more = UITool.FindChildGameObject("More");
+
         UITool.GetOrAddComponentInChildren<Button>("BtnNewGame").onClick.AddListener(() =>
         {
-            //点击事件可以写在这里面
             GameRoot.Instance.SceneSystem.SetScene(new MainScene());
         });
+        UITool.GetOrAddComponentInChildren<Button>("BtnMore").onClick.AddListener(() =>
+        {
+            main_menu.SetActive(false);
+            more.SetActive(true);
+        });
+        UITool.GetOrAddComponentInChildren<Button>("BtnQuit").onClick.AddListener(() =>
+        {
+            // GameRoot.Instance.SceneSystem.SetScene(new MainScene());
+        });
+
+        UITool.GetOrAddComponentInChildren<Button>("BtnMainMenu").onClick.AddListener(() =>
+        {
+            more.SetActive(false);
+            main_menu.SetActive(true);
+        });
+        UITool.GetOrAddComponentInChildren<Button>("BtnOptions").onClick.AddListener(() =>
+        {
+            Push(new OptionsPanel());
+        });
+
+        more.SetActive(false);
     }
 }

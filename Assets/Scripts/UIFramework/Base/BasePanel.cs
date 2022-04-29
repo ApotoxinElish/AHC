@@ -20,7 +20,7 @@ public abstract class BasePanel
     /// </summary>
     public PanelManager PanelManager { get; private set; }
     /// <summary>
-    /// The UI manager
+    /// UI管理器
     /// </summary>
     public UIManager UIManager { get; private set; }
 
