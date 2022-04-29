@@ -3,20 +3,20 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
-/// The parent class of all UI panels, containing state information for the UI panel
+/// 所有UI面板的父类，包括UI面板的信息
 /// </summary>
 public abstract class BasePanel
 {
     /// <summary>
-    /// The UI information
+    /// UI信息
     /// </summary>
     public UIType UIType { get; private set; }
     /// <summary>
-    /// UI Management tools
+    /// UI管理工具
     /// </summary>
     public UITool UITool { get; private set; }
     /// <summary>
-    /// Panel manager
+    /// 面板管理器
     /// </summary>
     public PanelManager PanelManager { get; private set; }
     /// <summary>
@@ -30,7 +30,7 @@ public abstract class BasePanel
     }
 
     /// <summary>
-    /// Initialize UITool
+    /// 初始化UITool
     /// </summary>
     /// <param name="tool"></param>
     public void Initialize(UITool tool)
@@ -39,7 +39,7 @@ public abstract class BasePanel
     }
 
     /// <summary>
-    /// Initialize the panel manager
+    /// 初始化面板管理器
     /// </summary>
     /// <param name="panelManager"></param>
     public void Initialize(PanelManager panelManager)
@@ -48,7 +48,7 @@ public abstract class BasePanel
     }
 
     /// <summary>
-    /// Initialize the UI manager
+    /// 初始化UI管理器
     /// </summary>
     /// <param name="uIManager"></param>
     public void Initialize(UIManager uIManager)
@@ -57,12 +57,12 @@ public abstract class BasePanel
     }
 
     /// <summary>
-    /// Operations performed when the UI enters are performed only once
+    /// UI进入时执行的操作，只会执行一次
     /// </summary>
     public virtual void OnEnter() { }
 
     /// <summary>
-    /// Actions performed when the UI pauses
+    /// UI暂停时执行的操作
     /// </summary>
     public virtual void OnPause()
     {
@@ -70,7 +70,7 @@ public abstract class BasePanel
     }
 
     /// <summary>
-    /// Actions performed while the UI continues
+    /// UI继续时执行的操作
     /// </summary>
     public virtual void OnResume()
     {
@@ -78,7 +78,7 @@ public abstract class BasePanel
     }
 
     /// <summary>
-    /// Operations performed when the UI exits
+    /// UI退出时执行的操作
     /// </summary>
     public virtual void OnExit()
     {
@@ -86,13 +86,13 @@ public abstract class BasePanel
     }
 
     /// <summary>
-    /// Show a panel
+    /// 显示一个面板
     /// </summary>
     /// <param name="panel"></param>
     public void Push(BasePanel panel) => PanelManager?.Push(panel);
 
     /// <summary>
-    /// Close a panel
+    /// 关闭一个面板
     /// </summary>
     public void Pop() => PanelManager?.Pop();
 }

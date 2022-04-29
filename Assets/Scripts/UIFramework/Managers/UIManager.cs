@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
-/// Stores all UI information and can create or destroy uIs
+/// 存储所有UI信息，并可以创建或者销毁UI
 /// </summary>
 public class UIManager
 {
     /// <summary>
-    /// A dictionary that stores all the UI information, and each UI information corresponds to a GameObject
+    /// 存储所有UI信息的字典，每一个UI信息都会对应一个GameObject
     /// </summary>
     private Dictionary<UIType, GameObject> dicUI;
 
@@ -18,16 +18,16 @@ public class UIManager
     }
 
     /// <summary>
-    /// Get a UI object
+    /// 获取一个UI对象
     /// </summary>
-    /// <param name="type">The UI information</param>
+    /// <param name="type">UI信息</param>
     /// <returns></returns>
     public GameObject GetSingleUI(UIType type)
     {
         GameObject parent = GameObject.Find("Canvas");
         if (!parent)
         {
-            Debug.LogError("Canvas does not exist, please check carefully whether this object exists");
+            Debug.LogError("Canvas不存在，请仔细查找有无这个对象");
             return null;
         }
         if (dicUI.ContainsKey(type))
@@ -39,9 +39,9 @@ public class UIManager
     }
 
     /// <summary>
-    /// Destroy a UI object
+    /// 销毁一个UI对象
     /// </summary>
-    /// <param name="type">The UI information</param>
+    /// <param name="type">UI信息</param>
     public void DestroyUI(UIType type)
     {
         if (dicUI.ContainsKey(type))

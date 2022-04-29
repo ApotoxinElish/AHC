@@ -3,17 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
-/// The state management system for the scenario
+/// 场景的状态管理系统
 /// </summary>
 public class SceneSystem
 {
     /// <summary>
-    /// Scene state class
+    /// 场景状态类
     /// </summary>
     SceneState sceneState;
 
     /// <summary>
-    /// Sets the current scene and enters the current scene
+    /// 设置当前场景并进入当前场景
     /// </summary>
     /// <param name="state"></param>
     public void SetScene(SceneState state)

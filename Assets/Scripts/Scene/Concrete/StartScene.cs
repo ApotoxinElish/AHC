@@ -4,12 +4,12 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 /// <summary>
-/// Start scenario
+/// 开始场景
 /// </summary>
 public class StartScene : SceneState
 {
     /// <summary>
-    /// The scene name
+    /// 场景名称
     /// </summary>
     readonly string sceneName = "Start";
     PanelManager panelManager;
@@ -36,7 +36,7 @@ public class StartScene : SceneState
     }
 
     /// <summary>
-    /// Method to execute after the scene is loaded
+    /// 场景加载完毕之后执行的方法
     /// </summary>
     /// <param name="scene"></param>
     /// <param name="load"></param>
@@ -44,6 +44,6 @@ public class StartScene : SceneState
     {
         panelManager.Push(new StartPanel());
         GameRoot.Instance.SetAction(panelManager.Push);
-        Debug.Log($"{sceneName} scene loaded!");
+        Debug.Log($"{sceneName}场景加载完毕！");
     }
 }

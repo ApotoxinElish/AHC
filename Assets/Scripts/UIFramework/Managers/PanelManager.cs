@@ -3,16 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
-/// Panel manager, which uses stacks to store UI
+/// 面板管理器，用栈来存储UI
 /// </summary>
 public class PanelManager
 {
     /// <summary>
-    /// A stack that stores UI panels
+    /// 存储UI面板的栈
     /// </summary>
     private Stack<BasePanel> stackPanel;
     /// <summary>
-    /// The UI manager
+    /// UI管理器
     /// </summary>
     private UIManager uIManager;
     private BasePanel panel;
@@ -24,9 +24,9 @@ public class PanelManager
     }
 
     /// <summary>
-    /// UI push operation, which displays a panel
+    /// UI的入栈操作，此操作会显示一个面板
     /// </summary>
-    /// <param name="nextPanel">The panel to display</param>
+    /// <param name="nextPanel">要显示的面板</param>
     public void Push(BasePanel nextPanel)
     {
         if (stackPanel.Count > 0)
@@ -43,7 +43,7 @@ public class PanelManager
     }
 
     /// <summary>
-    /// Executes the panel's unstack operation, which executes the panel's OnExit method
+    /// 执行面板的出栈操作，此操作会执行面板的OnExit方法
     /// </summary>
     public void Pop()
     {
@@ -54,7 +54,7 @@ public class PanelManager
     }
 
     /// <summary>
-    /// Execute OnExit() for all panels
+    /// 执行所有面板的OnExit()
     /// </summary>
     public void PopAll()
     {

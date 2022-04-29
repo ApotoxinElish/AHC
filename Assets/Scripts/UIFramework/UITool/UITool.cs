@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
-/// UI management tools, including operations to get a child object component
+/// UI管理工具，包括获取某个子对象组件的操作
 /// </summary>
 public class UITool
 {
     /// <summary>
-    /// Current active panel
+    /// 当前的活动面板
     /// </summary>
     GameObject activePanel;
 
@@ -18,10 +18,10 @@ public class UITool
     }
 
     /// <summary>
-    /// Gets or adds a component to the current active panel
+    /// 给当前的活动面板获取或者添加一个组件
     /// </summary>
-    /// <typeparam name="T">Component type</typeparam>
-    /// <returns>component</returns>
+    /// <typeparam name="T">组件类型</typeparam>
+    /// <returns>组件</returns>
     public T GetOrAddComponent<T>() where T : Component
     {
         if (activePanel.GetComponent<T>() == null)
@@ -31,9 +31,9 @@ public class UITool
     }
 
     /// <summary>
-    /// Finds a child object by name
+    /// 根据名称查找一个子对象
     /// </summary>
-    /// <param name="name">Child object name</param>
+    /// <param name="name">子对象名称</param>
     /// <returns></returns>
     public GameObject FindChildGameObject(string name)
     {
@@ -47,15 +47,15 @@ public class UITool
             }
         }
 
-        Debug.LogWarning($"{activePanel.name} could not find child object named {name}");
+        Debug.LogWarning($"{activePanel.name}里找不到名为{name}的子对象");
         return null;
     }
 
     /// <summary>
-    /// Component that gets a child object by name
+    /// 根据名称获取一个子对象的组件
     /// </summary>
-    /// <typeparam name="T">Component type</typeparam>
-    /// <param name="name">Child object name</param>
+    /// <typeparam name="T">组件类型</typeparam>
+    /// <param name="name">子对象的名称</param>
     /// <returns></returns>
     public T GetOrAddComponentInChildren<T>(string name) where T : Component
     {

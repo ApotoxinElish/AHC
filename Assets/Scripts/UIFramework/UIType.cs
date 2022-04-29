@@ -3,16 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
-/// Stores information about a single UI, including name and path
+/// 存储单个UI的信息，包括名字和路径
 /// </summary>
 public class UIType
 {
     /// <summary>
-    /// The UI name
+    /// UI名字
     /// </summary>
     public string Name { get; private set; }
     /// <summary>
-    /// The UI path
+    /// UI路径
     /// </summary>
     public string Path { get; private set; }
 

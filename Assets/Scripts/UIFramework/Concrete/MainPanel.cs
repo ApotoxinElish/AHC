@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 /// <summary>
-/// The main panel of the main scene
+/// main场景的主面板
 /// </summary>
 public class MainPanel : BasePanel
 {

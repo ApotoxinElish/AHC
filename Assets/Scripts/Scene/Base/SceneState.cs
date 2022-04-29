@@ -3,17 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
-/// Scene: the state
+/// 场景状态
 /// </summary>
 public abstract class SceneState
 {
     /// <summary>
-    /// Actions performed when the scene enters
+    /// 场景进入时候执行的操作
     /// </summary>
     public abstract void OnEnter();
 
     /// <summary>
-    /// Operation performed when the scenario exits
+    /// 场景退出时执行的操作
     /// </summary>
     public abstract void OnExit();
 }

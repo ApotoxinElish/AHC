@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 /// <summary>
-/// Start main panel
+/// 开始主面板
 /// </summary>
 public class StartPanel : BasePanel
 {
@@ -16,13 +16,13 @@ public class StartPanel : BasePanel
     {
         UITool.GetOrAddComponentInChildren<Button>("BtnMore").onClick.AddListener(() =>
         {
-            // Click events can be written in here
+            //点击事件可以写在这里面
             Debug.Log("The More button was clicked");
             PanelManager.Push(new OptionsPanel());
         });
         UITool.GetOrAddComponentInChildren<Button>("BtnNewGame").onClick.AddListener(() =>
         {
-            // Click events can be written in here
+            //点击事件可以写在这里面
             GameRoot.Instance.SceneSystem.SetScene(new MainScene());
         });
     }

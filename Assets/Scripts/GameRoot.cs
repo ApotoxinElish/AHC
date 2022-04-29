@@ -4,17 +4,17 @@ using UnityEngine;
 using UnityEngine.Events;
 
 /// <summary>
-/// Something to manage globally
+/// 管理全局的一些东西
 /// </summary>
 public class GameRoot : MonoBehaviour
 {
     public static GameRoot Instance { get; private set; }
     /// <summary>
-    /// Scenario manager
+    /// 场景管理器
     /// </summary>
     public SceneSystem SceneSystem { get; private set; }
     /// <summary>
-    /// Show a panel
+    /// 显示一个面板
     /// </summary>
     public UnityAction<BasePanel> Push { get; private set; }
 
@@ -35,7 +35,7 @@ public class GameRoot : MonoBehaviour
     }
 
     /// <summary>
-    /// Setting up a Push
+    /// 设置Push
     /// </summary>
     /// <param name="push"></param>
     public void SetAction(UnityAction<BasePanel> push)

@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 /// <summary>
-/// Task pane
+/// 任务面板
 /// </summary>
 public class TaskPanel : BasePanel
 {
