@@ -242,17 +242,6 @@ public class InvestigatorCard : PlayerCard
 }
 
 /// <summary>
-/// 调查员迷你卡
-/// </summary>
-public class InvestigatorMiniCard : PlayerCard
-{
-    public InvestigatorMiniCard(int _id, string _title) : base(_id, _title)
-    {
-
-    }
-}
-
-/// <summary>
 /// 支援卡
 /// </summary>
 public class AssetCard : PlayerCard
