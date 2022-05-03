@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 /// <summary>
 /// 卡牌类型
 /// </summary>
@@ -14,6 +15,24 @@ public enum ClassSymbol
     guardian, seeker, mystic, rogue, survivor, neutral
 }
 
+public enum SubType
+{
+    nonWeakness, basicWeakness, weakness
+}
+
+/// <summary>
+/// 技能检定图标
+/// </summary>
+public enum SkillTestIcons
+{
+    Willpower, Intellect, Combat, Agility, Wild
+}
+
+public enum Slot
+{
+    allySlot, bodySlot, accessorySlot, handSlot, arcaneSlot
+}
+
 /// <summary>
 /// 卡牌
 /// </summary>
@@ -24,7 +43,8 @@ public class Card
     /// 卡牌类型
     /// Indicates how a card behaves or may be used in the game.
     /// </summary>
-    public string cardtype;
+    public Cardtype cardtype;
+    public SubType subType;
     /// <summary>
     /// 名称
     /// The name of this card.
@@ -39,7 +59,7 @@ public class Card
     /// 属性
     /// Flavorful attributes that may be referenced by card abilities.
     /// </summary>
-    public string traits;
+    public List<string> traits;
     /// <summary>
     /// 能力
     /// This card's specialized means of interacting with the game.
@@ -49,7 +69,7 @@ public class Card
     /// 产品图标
     /// Indicates this card's product of origin.
     /// </summary>
-    public string productSetInformation;
+    public int productSetInformation;
 
     public Card(int _id, string _title)
     {
@@ -143,7 +163,7 @@ public class LocationCard : ScenarioCard
     /// 连接符号
     /// Indicate the movement connections between locations.
     /// </summary>
-    public string connectionSymbols;
+    public List<string> connectionSymbols;
 
     public bool unrevealed;
 
@@ -173,28 +193,28 @@ public class EnemyCard : ScenarioCard
     /// 敌人攻击值
     /// Determines the difficulty of a skill test to attack this enemy.
     /// </summary>
-    public string enemyFightValue;
+    public int enemyFightValue;
     /// <summary>
     /// 敌人生命值
     /// This enemy's health value, which measures its physical durability.
     /// </summary>
-    public string enemyHealthValue;
-    public string enemyHealthValueMax;
+    public int enemyHealthValue;
+    public int enemyHealthValueMax;
     /// <summary>
     /// 敌人躲避值
     /// Determines the difficulty of a skill test to evade this enemy.
     /// </summary>
-    public string enemyEvadeValue;
+    public int enemyEvadeValue;
     /// <summary>
     /// 伤害
     /// The amount of damage this enemy deals with its attack.
     /// </summary>
-    public string damage;
+    public int damage;
     /// <summary>
     /// 恐惧
     /// The amount of horror this enemy deals with its attack.
     /// </summary>
-    public string horror;
+    public int horror;
 
     public EnemyCard(int _id, string _title) : base(_id, _title)
     {
@@ -227,12 +247,12 @@ public class PlayerCard : Card
     /// 职阶符号
     /// The class to which a card belongs. Neutral cards have no class symbol.
     /// </summary>
-    public string classSymbol;
+    public ClassSymbol classSymbol;
     /// <summary>
     /// 技能检定图标
     /// Modify skill value while committed to a skill test.
     /// </summary>
-    public string skillTestIcons;
+    public Dictionary<SkillTestIcons, int> skillTestIcons;
 
     public PlayerCard(int _id, string _title) : base(_id, _title)
     {
@@ -249,12 +269,12 @@ public class InvestigatorCard : PlayerCard
     /// 技能
     /// This investigator's value for his or her skills, in order: Willpower, Intellect, Combat, Agility.
     /// </summary>
-    public int skills;
+    public Dictionary<SkillTestIcons, int> skills;
     /// <summary>
     /// 远古印记能力
     /// This investigator's ability for the Elder Sign token.
     /// </summary>
-    public int elderSignAbility;
+    public string elderSignAbility;
     /// <summary>
     /// 生命值
     /// This card's health value, which measures its physical durability.
@@ -296,6 +316,8 @@ public class AssetCard : PlayerCard
     /// </summary>
     public int sanity;
     public int sanityMax;
+
+    public Dictionary<Slot, int> slot;
 
     public AssetCard(int _id, string _title) : base(_id, _title)
     {
