@@ -5,17 +5,15 @@ using System.IO;
 
 public class PlayerData : MonoBehaviour
 {
-    public DataManager CardStore;
-    public int playerCoins;
-    public int[] playerCards;
-    public int[] playerDeck;
+    public DataManager DataManager;
+    public List<int> playerDeck;
 
     public TextAsset playerData;
 
     // Start is called before the first frame update
     void Awake()
     {
-        CardStore.LoadCardData();
+        DataManager.LoadCardData();
         LoadPlayerData();
     }
 
@@ -27,11 +25,12 @@ public class PlayerData : MonoBehaviour
 
     public void LoadPlayerData()
     {
-        playerCards = new int[CardStore.cardDict.Count];
-        playerDeck = new int[CardStore.cardDict.Count];
+        // int deckSize = 30;
+        playerDeck = new List<int>();
 
-        //Debug.Log(playerCards.Length);
+        // Debug.Log("Deck Size: " + playerDeck.Count);
         string[] dataRow = playerData.text.Split('\n');
+
         foreach (var row in dataRow)
         {
             string[] rowArray = row.Split(',');
@@ -39,21 +38,16 @@ public class PlayerData : MonoBehaviour
             {
                 continue;
             }
-            else if (rowArray[0] == "card")
-            {
-                int id = int.Parse(rowArray[1]);
-                int num = int.Parse(rowArray[2]);
-                //载入玩家数据
-                playerCards[id] = num;
-            }
-            else if (rowArray[0] == "deck")
-            {
-                int id = int.Parse(rowArray[1]);
-                int num = int.Parse(rowArray[2]);
-                //载入卡组
-                playerDeck[id] = num;
-            }
+            // Debug.Log(rowArray[0]);
+            int id = int.Parse(rowArray[0]);
+            int num = int.Parse(rowArray[1]);
+            //载入卡组
+            for (int i = 0; i < num; i++)
+                playerDeck.Add(id);
         }
+        // int j = playerDeck[0];
+        // playerDeck.Remove(j);
+        // Debug.Log(playerDeck.Count);
     }
 
     public void SavePlayerData()
@@ -61,22 +55,25 @@ public class PlayerData : MonoBehaviour
         string path = Application.dataPath + "/Datas/PlayerData.csv";
 
         List<string> datas = new List<string>();
-        datas.Add("coins," + playerCoins.ToString());
-        for (int i = 0; i < playerCards.Length; i++)
-        {
-            if (playerCards[i] != 0)
-            {
-                datas.Add("card," + i.ToString() + "," + playerCards[i].ToString());
-            }
-        }
+        Dictionary<int, int> dataDict = new Dictionary<int, int>();
         // 保存卡组
-        for (int i = 0; i < playerDeck.Length; i++)
+        foreach (var item in playerDeck)
         {
-            if (playerDeck[i] != 0)
+            if (dataDict.ContainsKey(item))
             {
-                datas.Add("deck," + i.ToString() + "," + playerDeck[i].ToString());
+                dataDict[item] += 1;
+            }
+            else
+            {
+                dataDict.Add(item, 1);
             }
         }
+
+        foreach (var item in dataDict)
+        {
+            datas.Add(item.Key.ToString() + "," + item.Value.ToString());
+        }
+
         //保存数据
         File.WriteAllLines(path, datas);
         //Debug.Log(datas);

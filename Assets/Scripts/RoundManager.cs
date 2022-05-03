@@ -50,29 +50,29 @@ public class RoundManager : MonoSingleton<RoundManager>
     public void ReadDeck()
     {
         // 加载玩家卡组
-        for (int i = 0; i < playerData.playerDeck.Length; i++)
+        for (int i = 0; i < playerData.playerDeck.Count; i++)
         {
-            if (playerData.playerDeck[i] != 0)
-            {
-                int count = playerData.playerDeck[i];
-                for (int j = 0; j < count; j++)
-                {
-                    playerDeckList.Add(playerData.CardStore.CopyCard(i));
-                }
-            }
+            // if (playerData.playerDeck[i] != 0)
+            // {
+            //     int count = playerData.playerDeck[i];
+            //     for (int j = 0; j < count; j++)
+            //     {
+            //         playerDeckList.Add(playerData.CardStore.CopyCard(i));
+            //     }
+            // }
         }
 
         // 加载敌人卡组
-        for (int i = 0; i < enemyData.playerDeck.Length; i++)
+        for (int i = 0; i < enemyData.playerDeck.Count; i++)
         {
-            if (enemyData.playerDeck[i] != 0)
-            {
-                int count = enemyData.playerDeck[i];
-                for (int j = 0; j < count; j++)
-                {
-                    enemyDeckList.Add(enemyData.CardStore.CopyCard(i));
-                }
-            }
+            // if (enemyData.playerDeck[i] != 0)
+            // {
+            //     int count = enemyData.playerDeck[i];
+            //     for (int j = 0; j < count; j++)
+            //     {
+            //         enemyDeckList.Add(enemyData.CardStore.CopyCard(i));
+            //     }
+            // }
         }
     }
 
