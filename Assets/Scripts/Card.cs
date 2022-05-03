@@ -1,8 +1,14 @@
+/// <summary>
+/// 卡牌类型
+/// </summary>
 public enum Cardtype
 {
     assetCard, enemyCard, eventCard, locationCard, skillCard, treacheryCard
 }
 
+/// <summary>
+/// 职阶符号
+/// </summary>
 public enum ClassSymbol
 {
     guardian, seeker, mystic, rogue, survivor, neutral
@@ -15,22 +21,32 @@ public class Card
 {
     public int id;
     /// <summary>
+    /// 卡牌类型
     /// Indicates how a card behaves or may be used in the game.
     /// </summary>
     public string cardtype;
     /// <summary>
+    /// 名称
     /// The name of this card.
     /// </summary>
     public string title;
     /// <summary>
+    /// 副名称
+    /// A secondary identifier for a card.
+    /// </summary>
+    public string subtitle;
+    /// <summary>
+    /// 属性
     /// Flavorful attributes that may be referenced by card abilities.
     /// </summary>
     public string traits;
     /// <summary>
+    /// 能力
     /// This card's specialized means of interacting with the game.
     /// </summary>
     public string ability;
     /// <summary>
+    /// 产品图标
     /// Indicates this card's product of origin.
     /// </summary>
     public string productSetInformation;
@@ -48,10 +64,12 @@ public class Card
 public class ScenarioCard : Card
 {
     /// <summary>
+    /// 遭遇组符号
     /// Indicates which encounter set the card belongs to.
     /// </summary>
     public string encounterSetSymbol;
     /// <summary>
+    /// 遭遇组牌数
     /// Indicates the number of cards within an encounter set, and this card's place within that set.
     /// </summary>
     public int encounterSetNumber;
@@ -68,10 +86,12 @@ public class ScenarioCard : Card
 public class ActCard : ScenarioCard
 {
     /// <summary>
+    /// 场景编号
     /// Used to order the act deck.
     /// </summary>
     public int actSequence;
     /// <summary>
+    /// 线索目标值
     /// The number of clues that must be spent to advance this act.
     /// </summary>
     public int clueThreshold;
@@ -88,10 +108,12 @@ public class ActCard : ScenarioCard
 public class AgendaCard : ScenarioCard
 {
     /// <summary>
+    /// 密谋编号
     /// Used to order the agenda deck.
     /// </summary>
     public int agendaSequence;
     /// <summary>
+    /// 毁灭目标值
     /// The amount of doom in play required to advance this agenda.
     /// </summary>
     public int doomThreshold;
@@ -108,14 +130,17 @@ public class AgendaCard : ScenarioCard
 public class LocationCard : ScenarioCard
 {
     /// <summary>
+    /// 隐藏值
     /// Determines the difficulty of a skill test to investigate this location.
     /// </summary>
     public int shroud;
     /// <summary>
+    /// 线索值
     /// The number of clues placed on this location when it is first revealed.
     /// </summary>
     public int clueValue;
     /// <summary>
+    /// 连接符号
     /// Indicate the movement connections between locations.
     /// </summary>
     public string connectionSymbols;
@@ -145,23 +170,28 @@ public class TreacheryCard : ScenarioCard
 public class EnemyCard : ScenarioCard
 {
     /// <summary>
+    /// 敌人攻击值
     /// Determines the difficulty of a skill test to attack this enemy.
     /// </summary>
     public string enemyFightValue;
     /// <summary>
+    /// 敌人生命值
     /// This enemy's health value, which measures its physical durability.
     /// </summary>
     public string enemyHealthValue;
     public string enemyHealthValueMax;
     /// <summary>
+    /// 敌人躲避值
     /// Determines the difficulty of a skill test to evade this enemy.
     /// </summary>
     public string enemyEvadeValue;
     /// <summary>
+    /// 伤害
     /// The amount of damage this enemy deals with its attack.
     /// </summary>
     public string damage;
     /// <summary>
+    /// 恐惧
     /// The amount of horror this enemy deals with its attack.
     /// </summary>
     public string horror;
@@ -189,18 +219,17 @@ public class ScenarioReferenceCard : ScenarioCard
 public class PlayerCard : Card
 {
     /// <summary>
+    /// 等级
     /// The amount of experience required to purchase this card for a deck.
     /// </summary>
     public int level;
     /// <summary>
+    /// 职阶符号
     /// The class to which a card belongs. Neutral cards have no class symbol.
     /// </summary>
     public string classSymbol;
     /// <summary>
-    /// A secondary identifier for a card.
-    /// </summary>
-    public string subtitle;
-    /// <summary>
+    /// 技能检定图标
     /// Modify skill value while committed to a skill test.
     /// </summary>
     public string skillTestIcons;
@@ -217,19 +246,23 @@ public class PlayerCard : Card
 public class InvestigatorCard : PlayerCard
 {
     /// <summary>
+    /// 技能
     /// This investigator's value for his or her skills, in order: Willpower, Intellect, Combat, Agility.
     /// </summary>
     public int skills;
     /// <summary>
+    /// 远古印记能力
     /// This investigator's ability for the Elder Sign token.
     /// </summary>
     public int elderSignAbility;
     /// <summary>
+    /// 生命值
     /// This card's health value, which measures its physical durability.
     /// </summary>
     public int health;
     public int healthMax;
     /// <summary>
+    /// 神智值
     /// This card's sanity value, which measures its mental durability.
     /// </summary>
     public int sanity;
@@ -247,15 +280,18 @@ public class InvestigatorCard : PlayerCard
 public class AssetCard : PlayerCard
 {
     /// <summary>
+    /// 费用
     /// The resource cost to play a card.
     /// </summary>
     public int cost;
     /// <summary>
+    /// 生命值
     /// This card's health value, which measures its physical durability.
     /// </summary>
     public int health;
     public int healthMax;
     /// <summary>
+    /// 神智值
     /// This card's sanity value, which measures its mental durability.
     /// </summary>
     public int sanity;
@@ -273,6 +309,7 @@ public class AssetCard : PlayerCard
 public class EventCard : PlayerCard
 {
     /// <summary>
+    /// 费用
     /// The resource cost to play a card.
     /// </summary>
     public int cost;
