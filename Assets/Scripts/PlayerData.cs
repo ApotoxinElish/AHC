@@ -27,8 +27,8 @@ public class PlayerData : MonoBehaviour
 
     public void LoadPlayerData()
     {
-        playerCards = new int[CardStore.cardList.Count];
-        playerDeck = new int[CardStore.cardList.Count];
+        playerCards = new int[CardStore.cardDict.Count];
+        playerDeck = new int[CardStore.cardDict.Count];
 
         //Debug.Log(playerCards.Length);
         string[] dataRow = playerData.text.Split('\n');

@@ -897,11 +897,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e90b5cf9b509924899de2dec3d694b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CardStore: {fileID: 0}
+  CardStore: {fileID: 468259131}
   playerCoins: 0
   playerCards: 
   playerDeck: 
-  playerData: {fileID: 0}
+  playerData: {fileID: 4900000, guid: aeba9980bf4d65049a324deff4809822, type: 3}
 --- !u!4 &468259130
 Transform:
   m_ObjectHideFlags: 0
@@ -929,7 +929,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 882d40fa65b44d3418ae174ccc16c87a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cardData: {fileID: 0}
+  cardData: {fileID: 4900000, guid: 4897e7dfa88954446b651c72fabffd5e, type: 3}
 --- !u!1 &528564793
 GameObject:
   m_ObjectHideFlags: 0
