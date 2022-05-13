@@ -20,6 +20,9 @@ public class DataManager : MonoBehaviour
 
     }
 
+    /// <summary>
+    /// 根据卡牌类别读取所有卡牌信息
+    /// </summary>
     public void LoadCardData()
     {
         string[] dataRow = cardData.text.Split('\n');
@@ -163,13 +166,53 @@ public class DataManager : MonoBehaviour
         Card copyCard = new Card(_id, cardDict[_id].title);
         if (cardDict[_id] is InvestigatorCard)
         {
-            var monstercard = cardDict[_id] as InvestigatorCard;
-            copyCard = new InvestigatorCard(_id, monstercard.title);
+            var card = cardDict[_id] as InvestigatorCard;
+            copyCard = new InvestigatorCard(_id, card.title);
+        }
+        else if (cardDict[_id] is AssetCard)
+        {
+            var card = cardDict[_id] as AssetCard;
+            copyCard = new AssetCard(_id, card.title);
+        }
+        else if (cardDict[_id] is EventCard)
+        {
+            var card = cardDict[_id] as EventCard;
+            copyCard = new EventCard(_id, card.title);
         }
         else if (cardDict[_id] is SkillCard)
         {
-            var spellcard = cardDict[_id] as SkillCard;
-            copyCard = new SkillCard(_id, spellcard.title);
+            var card = cardDict[_id] as SkillCard;
+            copyCard = new SkillCard(_id, card.title);
+        }
+        else if (cardDict[_id] is ScenarioReferenceCard)
+        {
+            var card = cardDict[_id] as ScenarioReferenceCard;
+            copyCard = new ScenarioReferenceCard(_id, card.title);
+        }
+        else if (cardDict[_id] is AgendaCard)
+        {
+            var card = cardDict[_id] as AgendaCard;
+            copyCard = new AgendaCard(_id, card.title);
+        }
+        else if (cardDict[_id] is ActCard)
+        {
+            var card = cardDict[_id] as ActCard;
+            copyCard = new ActCard(_id, card.title);
+        }
+        else if (cardDict[_id] is LocationCard)
+        {
+            var card = cardDict[_id] as LocationCard;
+            copyCard = new LocationCard(_id, card.title);
+        }
+        else if (cardDict[_id] is EnemyCard)
+        {
+            var card = cardDict[_id] as EnemyCard;
+            copyCard = new EnemyCard(_id, card.title);
+        }
+        else if (cardDict[_id] is TreacheryCard)
+        {
+            var card = cardDict[_id] as TreacheryCard;
+            copyCard = new TreacheryCard(_id, card.title);
         }
         // 其他卡牌类型
 

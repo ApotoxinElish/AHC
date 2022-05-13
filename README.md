@@ -69,3 +69,9 @@
 ---
 
 ## Glossary
+
+## 类
+
+### card
+
+### deck
