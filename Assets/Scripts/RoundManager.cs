@@ -49,7 +49,7 @@ public class RoundManager : MonoSingleton<RoundManager>
         ShuffleDeck(0);
 
         // 玩家抽卡5，敌人抽卡5
-        DrawCard(0, 3);
+        DrawCard(0, 5);
     }
 
     public void ReadDeck()
