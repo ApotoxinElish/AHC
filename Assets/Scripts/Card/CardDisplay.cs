@@ -8,9 +8,9 @@ public class CardDisplay : MonoBehaviour
 {
 
     public TMP_Text nameText;
-    public TMP_Text attackText;
-    public TMP_Text healthText;
-    public TMP_Text effectText;
+    // public TMP_Text attackText;
+    // public TMP_Text healthText;
+    // public TMP_Text effectText;
 
     public Image backgroundImage;
 
