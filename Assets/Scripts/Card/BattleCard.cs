@@ -19,17 +19,17 @@ public class BattleCard : MonoBehaviour, IPointerDownHandler
     public void OnPointerDown(PointerEventData eventData)
     {
         //当在手牌点击时，发起召唤请求
-        if (GetComponent<CardDisplay>().card is InvestigatorCard)
-        {
-            if (state == BattleCardState.inHand)
-            {
-                // RoundManager.Instance.SummonRequst(playerID, gameObject);
-            }
-            else if (state == BattleCardState.inBlock && attackCount > 0)//当在场上点击时，发起攻击请求
-            {
-                // RoundManager.Instance.AttackRequst(playerID, gameObject);
-            }
-        }
+        // if (GetComponent<CardDisplay>().card is InvestigatorCard)
+        // {
+        //     if (state == BattleCardState.inHand)
+        //     {
+        //         // RoundManager.Instance.SummonRequst(playerID, gameObject);
+        //     }
+        //     else if (state == BattleCardState.inBlock && attackCount > 0)//当在场上点击时，发起攻击请求
+        //     {
+        //         // RoundManager.Instance.AttackRequst(playerID, gameObject);
+        //     }
+        // }
     }
 
     public void ResetAttack()

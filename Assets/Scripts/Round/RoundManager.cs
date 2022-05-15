@@ -122,7 +122,7 @@ public class RoundManager : MonoSingleton<RoundManager>
         for (int i = 0; i < _count; i++)
         {
             GameObject card = Instantiate(cardPrefab, hand);
-            card.GetComponent<CardDisplay>().card = drawDeck[0];
+            // card.GetComponent<CardDisplay>().card = drawDeck[0];
             string name = drawDeck[0].id.ToString().PadLeft(5, '0');
             Debug.Log(name);
             Sprite cardImg = Resources.Load("Images/Cards/" + name, typeof(Sprite)) as Sprite;
