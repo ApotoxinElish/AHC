@@ -115,5 +115,7 @@
 ### Utils
 
 > #### ListShuffle
+>
+> 静态类，为 List 增加 Shuffle 洗牌功能
 
 > #### ObjectPool
