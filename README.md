@@ -70,13 +70,25 @@
 
 ## Glossary
 
-## 类
+## Scripts
 
 ### Architecture
 
 - ### Events
+
+  > #### GameEvent
+
+  > #### GameEventInt
+
 - ### Listeners
+
+  > #### GameEventIntListener
+
+  > #### GameEventListener
+
 - ### Variables
+
+  > #### IntVariable
 
 ### Runtime
 
