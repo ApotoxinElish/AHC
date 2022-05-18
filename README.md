@@ -77,52 +77,113 @@
 - ### Events
 
   > #### GameEvent
+  >
+  > 脚本化对象
+  > 单一事件，可触发所有记录的监听
 
   > #### GameEventInt
+  >
+  > 脚本化对象  
+  > 单一整型事件，可触发所有记录的整型监听，并传入数值
 
 - ### Listeners
 
   > #### GameEventIntListener
+  >
+  > 整型事件监听  
+  > 挂载到需要触发事件的对象上  
+  > 监听整型事件
 
   > #### GameEventListener
+  >
+  > 事件监听  
+  > 挂载到需要触发事件的对象上
+  > 监听事件
 
 - ### Variables
 
   > #### IntVariable
+  >
+  > 整型变量  
+  > 脚本化对象  
+  > 作为可以触发整型事件的变量
 
 ### Runtime
 
 > #### CardObject
+>
+> 卡牌对象  
+> 挂载到卡牌对象上，对改卡牌进行操作
 
 > #### RuntimeCard
+>
+> 运行时卡牌  
+> 不可挂载  
+> 记录卡牌模板
 
 ### Systems
 
 > #### DeckDrawingSystem
+>
+> 牌堆摸牌系统  
+> 主要是卡牌在牌堆之间的操作
 
 > #### HandPresentationSystem
+>
+> 手牌显示系统
+> 对手牌的显示操作
 
 > #### TurnManagementSystem
+>
+> 回合管理系统
+> 对游戏流程中的回合进行管理
 
 ### Templates
+
+> #### CardLibrary
+>
+> 卡牌库
+> 脚本化对象
+> 某一牌堆所有卡牌和张数的列表
+
+> #### CardLibraryEntry
+>
+> 卡牌库条目
+> 不可挂载
+> 单种卡片的张数
+
+> #### CardTemplate
+>
+> 卡牌模板
+> 脚本化对象
+> 储存单张卡牌的信息
+
+> #### CardType
+>
+> 卡牌类型
+> 脚本化对象
+> TODO
 
 ### UI
 
 > #### DeckWidget
+>
+> 牌堆部件
+> 挂载到弃牌堆的组件，用于显示牌数等
 
 > #### DiscardPileWidget
+>
+> 弃牌堆部件
+> 挂载到弃牌堆的组件，用于显示牌数等
 
 ### Utils
 
 > #### ListShuffle
 >
+> 列表洗牌
 > 静态类，为 List 增加 Shuffle 洗牌功能
 
 > #### ObjectPool
 >
-> 对象池是一种常见的游戏开发技术，有助于减少在创建和销毁大量对象时在运行时产生的垃圾量。 我们将它用于游戏中的所有卡片。  
+> 对象池
 > 挂载到 CardPool，作为所有卡牌对象的父类
->
-> ##### 成员变量
->
-> 成员函数
