@@ -4931,13 +4931,13 @@ MonoBehaviour:
   Response:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1150562224}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
+      - m_Target: {fileID: 1150562227}
+        m_TargetAssemblyTypeName: AHC.HandPresentationSystem, Assembly-CSharp
+        m_MethodName: MoveHandToDiscardPile
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -10626,7 +10626,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78b4692764b1f6647841f80a8051df26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HandPresentationSystem: {fileID: 0}
+  HandPresentationSystem: {fileID: 1150562227}
 --- !u!1 &2055071004
 GameObject:
   m_ObjectHideFlags: 0
