@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering;
@@ -87,7 +88,62 @@ namespace AHC
 
         private void AnimateCardsFromDeckToHand(List<GameObject> drawnCards)
         {
+            isAnimating = true;
 
+            ArrangeHandCards();
+
+            foreach (var card in handCards)
+            {
+                card.GetComponent<CardObject>().SetInteractable(false);
+            }
+
+            var interval = 0.0f;
+            for (var i = 0; i < handCards.Count; i++)
+            {
+                var i1 = i;
+                const float time = 0.5f;
+                var card = handCards[i];
+                if (drawnCards.Contains(card))
+                {
+                    var cardObject = card.GetComponent<CardObject>();
+
+                    var seq = DOTween.Sequence();
+                    seq.AppendInterval(interval);
+                    seq.AppendCallback(() =>
+                    {
+                        deckWidget.RemoveCard();
+                        var move = card.transform.DOMove(positions[i1], time).OnComplete(() =>
+                        {
+                            cardObject.CacheTransform(positions[i1], rotations[i1]);
+                            cardObject.SetInteractable(true);
+                        });
+                        card.transform.DORotateQuaternion(rotations[i1], time);
+                        card.transform.DOScale(originalCardScale, time);
+                        if (i1 == handCards.Count - 1)
+                        {
+                            move.OnComplete(() =>
+                            {
+                                isAnimating = false;
+                                cardObject.CacheTransform(positions[i1], rotations[i1]);
+                                cardObject.SetInteractable(true);
+                            });
+                        }
+                    });
+
+                    card.GetComponent<SortingGroup>().sortingOrder = sortingOrders[i];
+
+                    interval += 0.2f;
+                }
+                else
+                {
+                    card.transform.DOMove(positions[i1], time).OnComplete(() =>
+                    {
+                        card.GetComponent<CardObject>().CacheTransform(positions[i1], rotations[i1]);
+                        card.GetComponent<CardObject>().SetInteractable(true);
+                    });
+                    card.transform.DORotateQuaternion(rotations[i1], time);
+                }
+            }
         }
 
         private void ArrangeHandCards()
@@ -119,6 +175,19 @@ namespace AHC
         public void RearrangeHand(GameObject selectedCard)
         {
             handCards.Remove(selectedCard);
+
+            ArrangeHandCards();
+
+            for (var i = 0; i < handCards.Count; i++)
+            {
+                var card = handCards[i];
+                const float time = 0.3f;
+                card.transform.DOMove(positions[i], time);
+                card.transform.DORotateQuaternion(rotations[i], time);
+                card.GetComponent<SortingGroup>().sortingOrder = sortingOrders[i];
+                card.GetComponent<CardObject>().SetGlowEnabled(playerMana.Value);
+                card.GetComponent<CardObject>().CacheTransform(positions[i], rotations[i]);
+            }
         }
 
         public void RemoveCardFromHand(GameObject go)
@@ -128,7 +197,20 @@ namespace AHC
 
         public void MoveCardToDiscardPile(GameObject go)
         {
-
+            var seq = DOTween.Sequence();
+            seq.AppendCallback(() =>
+            {
+                go.transform.DOMove(discardPileWidget.transform.position, CardToDiscardPileAnimationTime);
+                go.transform.DOScale(Vector3.zero, CardToDiscardPileAnimationTime).OnComplete(() =>
+                {
+                    go.GetComponent<PooledObject>().Pool.ReturnObject(go);
+                });
+            });
+            seq.AppendCallback(() =>
+            {
+                discardPileWidget.AddCard();
+                handCards.Remove(go);
+            });
         }
 
         public void MoveHandToDiscardPile()
@@ -152,7 +234,7 @@ namespace AHC
             {
                 if (card != x)
                 {
-                    // card.GetComponent<CardObject>().UnHighlightCard();
+                    card.GetComponent<CardObject>().UnHighlightCard();
                 }
             }
         }
