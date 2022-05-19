@@ -56,7 +56,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -2095102678433117944, guid: bdec8eb865ac14198aba9f18e9a92e33, type: 2}
+  - {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -100,9 +100,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Type
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: bdec8eb865ac14198aba9f18e9a92e33, type: 2}
-  m_sharedMaterial: {fileID: -2095102678433117944, guid: bdec8eb865ac14198aba9f18e9a92e33,
-    type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -332,7 +331,7 @@ SpriteRenderer:
   m_Size: {x: 3.15, y: 2.55}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 1
   m_SpriteSortPoint: 0
 --- !u!1 &3518561381738684092
@@ -391,7 +390,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -2095102678433117944, guid: bdec8eb865ac14198aba9f18e9a92e33, type: 2}
+  - {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -435,9 +434,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Card name
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: bdec8eb865ac14198aba9f18e9a92e33, type: 2}
-  m_sharedMaterial: {fileID: -2095102678433117944, guid: bdec8eb865ac14198aba9f18e9a92e33,
-    type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -595,7 +593,7 @@ SpriteRenderer:
   m_Size: {x: 4.55, y: 6}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!210 &1602378429601720228
@@ -607,7 +605,7 @@ SortingGroup:
   m_GameObject: {fileID: 4360981354106378674}
   m_Enabled: 1
   m_SortingLayerID: 1437447475
-  m_SortingLayer: 4
+  m_SortingLayer: 0
   m_SortingOrder: 0
 --- !u!61 &5242302523217687933
 BoxCollider2D:
@@ -644,7 +642,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 4360981354106378674}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7b6c7e97fda2b44fd82bbe3c07fb0538, type: 3}
+  m_Script: {fileID: 11500000, guid: bfe5c617f2ed5264b8aaa75044da9cac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   costText: {fileID: 3662438130100510042}
@@ -653,8 +651,6 @@ MonoBehaviour:
   descriptionText: {fileID: 981492405183802946}
   picture: {fileID: 1889407785965767719}
   glow: {fileID: 4052160518242966943}
-  inHandColor: {r: 0.039215688, g: 0.6392157, b: 0.94509804, a: 1}
-  aboutToBePlayedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
   Template: {fileID: 0}
 --- !u!114 &-3504286006441947994
 MonoBehaviour:
@@ -665,15 +661,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 4360981354106378674}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1aa96c0a04a084326ab0d2bf4e6a37c8, type: 3}
+  m_Script: {fileID: 11500000, guid: 59adfc892722fde4aaa649ef5b5441f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Event: {fileID: 11400000, guid: bd0bee63f45a34c4d9dee5f50cec0921, type: 2}
+  Event: {fileID: 11400000, guid: e61e2f017c3175c4bb1a0e905690fabf, type: 2}
   Response:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 941384384109541781}
-        m_TargetAssemblyTypeName: CCGKit.CardObject, Assembly-CSharp
+        m_TargetAssemblyTypeName: AHC.CardObject, Assembly-CSharp
         m_MethodName: OnManaChanged
         m_Mode: 0
         m_Arguments:
@@ -763,7 +759,7 @@ SpriteRenderer:
   m_Size: {x: 4.35, y: 5.79}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &7656063287610784939
@@ -822,7 +818,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -2095102678433117944, guid: bdec8eb865ac14198aba9f18e9a92e33, type: 2}
+  - {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -866,9 +862,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Description.
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: bdec8eb865ac14198aba9f18e9a92e33, type: 2}
-  m_sharedMaterial: {fileID: -2095102678433117944, guid: bdec8eb865ac14198aba9f18e9a92e33,
-    type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -993,7 +988,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -2095102678433117944, guid: bdec8eb865ac14198aba9f18e9a92e33, type: 2}
+  - {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1037,9 +1032,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 99
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: bdec8eb865ac14198aba9f18e9a92e33, type: 2}
-  m_sharedMaterial: {fileID: -2095102678433117944, guid: bdec8eb865ac14198aba9f18e9a92e33,
-    type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []

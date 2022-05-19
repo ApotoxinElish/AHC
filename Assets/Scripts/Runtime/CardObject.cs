@@ -57,6 +57,11 @@ namespace AHC
             glow.enabled = playerMana >= Template.Cost;
         }
 
+        public void OnManaChanged(int mana)
+        {
+            // SetGlowEnabled(Template.Cost <= mana);
+        }
+
         public void SetInteractable(bool value)
         {
             interactable = value;
