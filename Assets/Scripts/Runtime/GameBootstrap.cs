@@ -13,7 +13,8 @@ namespace AHC
         [SerializeField]
         private TurnManagementSystem turnManagementSystem;
 
-
+        [SerializeField]
+        private ManaWidget manaWidget;
         [SerializeField]
         private DeckWidget deckWidget;
         [SerializeField]
@@ -24,6 +25,7 @@ namespace AHC
 
         private Camera mainCamera;
 
+        [SerializeField]
         private CardLibrary playerDeck;
 
         void Start()
@@ -31,6 +33,14 @@ namespace AHC
             mainCamera = Camera.main;
 
             cardPool.Initialize();
+
+            var mana = new IntVariable(); // playerConfig.Mana;
+            mana.Value = 3;
+
+            // playerDeck = template.StartingDeck;
+            manaWidget.Initialize(mana);
+
+            InitializeGame();
         }
 
         private void InitializeGame()

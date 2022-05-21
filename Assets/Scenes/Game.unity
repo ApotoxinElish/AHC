@@ -534,7 +534,7 @@ Transform:
   m_GameObject: {fileID: 203179580}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.95, y: 0.95, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 4
@@ -580,7 +580,7 @@ SpriteRenderer:
   m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: b7336e4c98e7dbe468628e1443f1d3a1, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.5019608}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -618,7 +618,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 423871970}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &299982099
 GameObject:
@@ -829,11 +829,11 @@ Transform:
   - {fileID: 179177597}
   - {fileID: 2048879021}
   - {fileID: 1150562225}
+  - {fileID: 1698782788}
   - {fileID: 665879908}
   - {fileID: 851401730}
   - {fileID: 296894667}
   - {fileID: 1315219924}
-  - {fileID: 1698782788}
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -942,7 +942,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 423871970}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &665879909
 MonoBehaviour:
@@ -984,7 +984,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 423871970}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &851574562
 GameObject:
@@ -1163,6 +1163,7 @@ GameObject:
   - component: {fileID: 933667563}
   - component: {fileID: 933667565}
   - component: {fileID: 933667564}
+  - component: {fileID: 933667566}
   m_Layer: 5
   m_Name: ManaWidget
   m_TagString: Untagged
@@ -1211,7 +1212,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 004a3b9259f256c49bde4b4a513ff346, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b97985fb83eb3ee4c849322edbd8ae7f, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1229,6 +1230,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 933667562}
   m_CullTransparentMesh: 0
+--- !u!114 &933667566
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 933667562}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91fbad6937e8b0f4a9cffe6cbf19f99b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  text: {fileID: 851574564}
+  textBorder: {fileID: 1585160748}
 --- !u!1 &1082194273
 GameObject:
   m_ObjectHideFlags: 0
@@ -1448,6 +1463,8 @@ GameObject:
   - component: {fileID: 1235646200}
   - component: {fileID: 1235646199}
   - component: {fileID: 1235646198}
+  - component: {fileID: 1235646202}
+  - component: {fileID: 1235646201}
   m_Layer: 5
   m_Name: EndTurnButton
   m_TagString: Untagged
@@ -1518,7 +1535,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1235646199}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1235646202}
+        m_TargetAssemblyTypeName: AHC.EndTurnButton, Assembly-CSharp
+        m_MethodName: OnButtonPressed
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1235646199
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1557,6 +1586,46 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1235646196}
   m_CullTransparentMesh: 0
+--- !u!114 &1235646201
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1235646196}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34e098b2b5da6b64186d4674fc49ebf7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: 4e6c10d0255fa854a9c699d509ddb814, type: 2}
+  Response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1235646198}
+        m_TargetAssemblyTypeName: UnityEngine.UI.Selectable, UnityEngine.UI
+        m_MethodName: set_interactable
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+--- !u!114 &1235646202
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1235646196}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76b4ac2014598974aad3c2aa93a8a580, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1311264068
 GameObject:
   m_ObjectHideFlags: 0
@@ -1706,7 +1775,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 423871970}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1364656683
 GameObject:
@@ -1999,7 +2068,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.7590394}
+  m_Offset: {x: 0, y: 1}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -2010,7 +2079,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 3.024106, y: 3.457845}
+  m_Size: {x: 3, y: 4}
   m_EdgeRadius: 0
 --- !u!1 &1585160746
 GameObject:
@@ -2155,6 +2224,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1698782788}
+  - component: {fileID: 1698782789}
   m_Layer: 0
   m_Name: CardSelectionSystem
   m_TagString: Untagged
@@ -2174,8 +2244,24 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 423871970}
-  m_RootOrder: 7
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1698782789
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1698782787}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e0d54feaa6f0e24db6532f8d820dae6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PlayerMana: {fileID: 11400000, guid: 3ae497fc88abc1349bea2f079e1d4ad3, type: 2}
+  TurnManagementSystem: {fileID: 179177598}
+  DeckDrawingSystem: {fileID: 2048879024}
+  HandPresentationSystem: {fileID: 1150562227}
 --- !u!1 &1700999187
 GameObject:
   m_ObjectHideFlags: 0
@@ -2465,7 +2551,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b99ce87c57f28704d89e3faf19c828dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  textLabel: {fileID: 0}
+  textLabel: {fileID: 1082194275}
 --- !u!1 &1771802423
 GameObject:
   m_ObjectHideFlags: 0
@@ -2512,9 +2598,11 @@ MonoBehaviour:
   deckDrawingSystem: {fileID: 2048879024}
   handPresentationSystem: {fileID: 1150562227}
   turnManagementSystem: {fileID: 179177598}
+  manaWidget: {fileID: 933667566}
   deckWidget: {fileID: 1765413642}
   discardPileWidget: {fileID: 1964267744}
   cardPool: {fileID: 1966249274}
+  playerDeck: {fileID: 11400000, guid: c0781e8e52ec4a744ac2e98385ccaf38, type: 2}
 --- !u!1 &1858013616
 GameObject:
   m_ObjectHideFlags: 0
@@ -2740,7 +2828,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ffdc618156b41f42a60332a383be836, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  textLabel: {fileID: 0}
+  textLabel: {fileID: 2103405034}
 --- !u!1 &1966249272
 GameObject:
   m_ObjectHideFlags: 0

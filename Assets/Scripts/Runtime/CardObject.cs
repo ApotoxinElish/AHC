@@ -1,4 +1,4 @@
-// using DG.Tweening;
+using DG.Tweening;
 using System;
 using System.Text;
 using TMPro;
@@ -27,13 +27,52 @@ namespace AHC
         [SerializeField]
         private SpriteRenderer glow;
 
+        [SerializeField]
+        private Color inHandColor;
+        [SerializeField]
+        private Color aboutToBePlayedColor;
+
         public RuntimeCard RuntimeCard;
         public CardTemplate Template;
 
+        private SortingGroup sortingGroup;
+
         private Vector3 cachedPos;
         private Quaternion cachedRot;
+        private int cachedSortingOrder;
+        private int highlightedSortingOrder;
 
         private bool interactable;
+
+        private HandPresentationSystem handPresentationSystem;
+
+        private bool beingHighlighted;
+        private bool beingUnhighlighted;
+
+        public enum CardState
+        {
+            InHand,
+            AboutToBePlayed
+        }
+
+        public CardState State => currState;
+        private CardState currState;
+
+        private void Awake()
+        {
+            sortingGroup = GetComponent<SortingGroup>();
+            SetGlowEnabled(false);
+        }
+
+        private void Start()
+        {
+            handPresentationSystem = FindObjectOfType<HandPresentationSystem>();
+        }
+
+        private void OnEnable()
+        {
+            SetState(CardState.InHand);
+        }
 
         public void SetInfo(RuntimeCard card)
         {
@@ -52,14 +91,39 @@ namespace AHC
             picture.sprite = Template.Picture;
         }
 
+        public void SetGlowEnabled(bool glowEnabled)
+        {
+            glow.enabled = glowEnabled;
+        }
+
         public void SetGlowEnabled(int playerMana)
         {
             glow.enabled = playerMana >= Template.Cost;
         }
 
+        public bool IsGlowEnabled()
+        {
+            return glow.enabled;
+        }
+
         public void OnManaChanged(int mana)
         {
-            // SetGlowEnabled(Template.Cost <= mana);
+            SetGlowEnabled(Template.Cost <= mana);
+        }
+
+        public void SetState(CardState state)
+        {
+            currState = state;
+            switch (currState)
+            {
+                case CardState.InHand:
+                    glow.color = inHandColor;
+                    break;
+
+                case CardState.AboutToBePlayed:
+                    glow.color = aboutToBePlayedColor;
+                    break;
+            }
         }
 
         public void SetInteractable(bool value)
@@ -71,13 +135,65 @@ namespace AHC
         {
             cachedPos = position;
             cachedRot = rotation;
-            // cachedSortingOrder = sortingGroup.sortingOrder;
-            // highlightedSortingOrder = cachedSortingOrder + 10;
+            cachedSortingOrder = sortingGroup.sortingOrder;
+            highlightedSortingOrder = cachedSortingOrder + 10;
+        }
+
+        private void OnMouseEnter()
+        {
+            if (interactable)
+            {
+                HighlightCard();
+                handPresentationSystem.UnHighlightOtherCards(gameObject);
+            }
+        }
+
+        private void OnMouseExit()
+        {
+            if (interactable)
+            {
+                UnHighlightCard();
+            }
+        }
+
+        public void HighlightCard()
+        {
+            if (beingHighlighted)
+            {
+                return;
+            }
+
+            beingHighlighted = true;
+
+            sortingGroup.sortingOrder = highlightedSortingOrder;
+            transform.DOMove(cachedPos + new Vector3(0.0f, 1.0f, 0.0f), 0.05f)
+                .SetEase(Ease.OutCubic)
+                .OnComplete(() => beingHighlighted = false);
         }
 
         public void UnHighlightCard()
         {
+            if (beingUnhighlighted)
+            {
+                return;
+            }
 
+            beingUnhighlighted = true;
+
+            sortingGroup.sortingOrder = cachedSortingOrder;
+            var y = transform.position.y;
+            var seq = DOTween.Sequence();
+            transform.DOMove(cachedPos, 0.02f)
+                .SetEase(Ease.OutCubic)
+                .OnComplete(() => beingUnhighlighted = false);
+        }
+
+        public void Reset(Action onComplete)
+        {
+            transform.DOMove(cachedPos, 0.2f);
+            transform.DORotateQuaternion(cachedRot, 0.2f);
+            sortingGroup.sortingOrder = cachedSortingOrder;
+            onComplete();
         }
     }
 }

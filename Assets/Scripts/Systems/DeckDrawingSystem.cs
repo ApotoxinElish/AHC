@@ -24,7 +24,7 @@ namespace AHC
             discardPileWidget = discardPile;
         }
 
-        private void Start()
+        private void Awake() // Start()
         {
             deck = new List<RuntimeCard>(InitialDeckCapacity);
             discardPile = new List<RuntimeCard>(InitialDiscardPileCapacity);
