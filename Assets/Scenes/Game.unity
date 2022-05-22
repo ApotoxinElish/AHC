@@ -200,7 +200,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
-  m_SortingLayerID: 1359374843
+  m_SortingLayerID: 1107980447
   m_SortingOrder: 0
   m_TargetDisplay: 0
 --- !u!224 &9867754
@@ -435,7 +435,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
-  m_SortingLayerID: 450721867
+  m_SortingLayerID: -1243037417
   m_SortingOrder: 0
   m_TargetDisplay: 0
 --- !u!224 &94989991
@@ -576,7 +576,7 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -2082299763
+  m_SortingLayerID: -426542833
   m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: b7336e4c98e7dbe468628e1443f1d3a1, type: 3}
