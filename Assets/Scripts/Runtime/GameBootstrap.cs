@@ -13,6 +13,8 @@ namespace AHC
         private HandPresentationSystem handPresentationSystem;
         [SerializeField]
         private TurnManagementSystem turnManagementSystem;
+        [SerializeField]
+        private EffectResolutionSystem effectResolutionSystem;
 
         [SerializeField]
         private ManaWidget manaWidget;
