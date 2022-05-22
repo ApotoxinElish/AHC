@@ -29,6 +29,7 @@ namespace AHC
         private bool isCardAboutToBePlayed;
 
         private const float CardAnimationTime = 0.4f;
+        private const float CardSelectionCanceledAnimationTime = 0.2f;
         private const float CardAboutToBePlayedOffsetY = 1.5f;
         private const Ease CardAnimationEase = Ease.OutBack;
 
@@ -110,19 +111,37 @@ namespace AHC
             {
                 var card = hitInfo.collider.GetComponent<CardObject>();
                 var cardTemplate = card.Template;
-                // if (CardUtils.CardCanBePlayed(cardTemplate, PlayerMana) &&
-                //     !CardUtils.CardHasTargetableEffect(cardTemplate))
-                // {
-                SelectedCard = hitInfo.collider.gameObject;
-                originalCardPos = SelectedCard.transform.position;
-                originalCardRot = SelectedCard.transform.rotation;
-                originalCardSortingOrder = SelectedCard.GetComponent<SortingGroup>().sortingOrder;
-                // }
+                if (CardUtils.CardCanBePlayed(cardTemplate, PlayerMana) &&
+                    !CardUtils.CardHasTargetableEffect(cardTemplate))
+                {
+                    SelectedCard = hitInfo.collider.gameObject;
+                    originalCardPos = SelectedCard.transform.position;
+                    originalCardRot = SelectedCard.transform.rotation;
+                    originalCardSortingOrder = SelectedCard.GetComponent<SortingGroup>().sortingOrder;
+                }
             }
         }
 
         private void DetectCardUnselection()
-        { }
+        {
+            if (SelectedCard != null)
+            {
+                var seq = DOTween.Sequence();
+                seq.AppendCallback(() =>
+                {
+                    SelectedCard.GetComponent<CardObject>().SetState(CardObject.CardState.InHand);
+                    SelectedCard.transform
+                        .DOMove(originalCardPos, CardSelectionCanceledAnimationTime)
+                        .SetEase(CardAnimationEase);
+                    SelectedCard.transform.DORotate(originalCardRot.eulerAngles, CardSelectionCanceledAnimationTime);
+                });
+                seq.OnComplete(() =>
+                {
+                    SelectedCard.GetComponent<SortingGroup>().sortingOrder = originalCardSortingOrder;
+                    SelectedCard = null;
+                });
+            }
+        }
 
         private void UpdateSelectedCard()
         {

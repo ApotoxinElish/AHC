@@ -23,7 +23,7 @@ namespace AHC
 
         private void SetValue(int value)
         {
-            text.text = $"{value.ToString()}/{maxValue.ToString()}";
+            text.text = $"{value.ToString()}"; // /{maxValue.ToString()}";
             textBorder.text = text.text;
         }
 

@@ -34,7 +34,7 @@ namespace AHC
 
             cardPool.Initialize();
 
-            var mana = new IntVariable(); // playerConfig.Mana;
+            var mana = ScriptableObject.CreateInstance<IntVariable>(); // playerConfig.Mana;
             mana.Value = 3;
 
             // playerDeck = template.StartingDeck;
