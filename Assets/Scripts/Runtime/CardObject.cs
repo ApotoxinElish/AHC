@@ -47,6 +47,7 @@ namespace AHC
         private bool interactable;
 
         private HandPresentationSystem handPresentationSystem;
+        private CardSelectionSystem cardSelectionSystem;
 
         private bool beingHighlighted;
         private bool beingUnhighlighted;
@@ -69,6 +70,7 @@ namespace AHC
         private void Start()
         {
             handPresentationSystem = FindObjectOfType<HandPresentationSystem>();
+            cardSelectionSystem = FindObjectOfType<CardSelectionSystem>();
         }
 
         private void OnEnable()
@@ -80,15 +82,15 @@ namespace AHC
         {
             RuntimeCard = card;
             Template = card.Template;
-            costText.text = Template.Cost.ToString();
-            titleText.text = Template.Name;
-            typeText.text = "Spell";
-            var builder = new StringBuilder();
-            foreach (var effect in Template.Effects)
-            {
-                builder.AppendFormat("{0}. ", effect.GetName());
-            }
-            abilityText.text = builder.ToString();
+            // costText.text = Template.Cost.ToString();
+            // titleText.text = Template.Title;
+            // typeText.text = "Asset";
+            // var builder = new StringBuilder();
+            // foreach (var effect in Template.Effects)
+            // {
+            //     builder.AppendFormat("{0}. ", effect.GetName());
+            // }
+            // abilityText.text = builder.ToString();
             picture.material = Template.Material;
             picture.sprite = Template.Picture;
         }
@@ -108,9 +110,9 @@ namespace AHC
             return glow.enabled;
         }
 
-        public void OnManaChanged(int mana)
+        public void OnResourceChanged(int resource)
         {
-            SetGlowEnabled(Template.Cost <= mana);
+            SetGlowEnabled(Template.Cost <= resource);
         }
 
         public void SetState(CardState state)
@@ -160,6 +162,11 @@ namespace AHC
 
         public void HighlightCard()
         {
+            if (cardSelectionSystem.HasSelectedCard())
+            {
+                return;
+            }
+
             if (beingHighlighted)
             {
                 return;
@@ -175,6 +182,11 @@ namespace AHC
 
         public void UnHighlightCard()
         {
+            if (cardSelectionSystem.HasSelectedCard())
+            {
+                return;
+            }
+
             if (beingUnhighlighted)
             {
                 return;
@@ -183,8 +195,8 @@ namespace AHC
             beingUnhighlighted = true;
 
             sortingGroup.sortingOrder = cachedSortingOrder;
-            var y = transform.position.y;
-            var seq = DOTween.Sequence();
+            // var y = transform.position.y;
+            // var seq = DOTween.Sequence();
             transform.DOMove(cachedPos, 0.02f)
                 .SetEase(Ease.OutCubic)
                 .OnComplete(() => beingUnhighlighted = false);

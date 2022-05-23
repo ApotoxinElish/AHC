@@ -11,6 +11,7 @@ namespace AHC
     public class PlayerTemplate : CharacterTemplate
     {
         public int Health;
+        public int Sanity;
         public int Resource;
         public CardLibrary StartingDeck;
     }

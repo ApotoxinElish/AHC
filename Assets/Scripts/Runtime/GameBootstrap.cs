@@ -69,12 +69,14 @@ namespace AHC
             playerDeck = template.StartingDeck;
 
             var health = playerConfig.Health;
+            var sanity = playerConfig.Sanity;
             var resource = playerConfig.Resource;
             health.Value = template.Health;
+            sanity.Value = template.Sanity;
             resource.Value = template.Resource;
 
-            // playerDeck = template.StartingDeck;
             // healthWidget.Initialize(health);
+            // sanityWidget.Initialize(sanity);
             resourceWidget.Initialize(resource);
 
             InitializeGame();

@@ -12,7 +12,7 @@ namespace AHC
     public class CardTemplate : ScriptableObject
     {
         public int Id;
-        public string Name;
+        public string Title;
         public int Cost;
         public Material Material;
         public Sprite Picture;

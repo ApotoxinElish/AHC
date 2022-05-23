@@ -15,5 +15,6 @@ MonoBehaviour:
   Name: Roland
   Prefab: {fileID: 0}
   Health: 9
+  Sanity: 5
   Resource: 5
   StartingDeck: {fileID: 11400000, guid: c0781e8e52ec4a744ac2e98385ccaf38, type: 2}
