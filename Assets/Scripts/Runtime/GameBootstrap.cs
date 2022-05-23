@@ -7,6 +7,7 @@ namespace AHC
 {
     public class GameBootstrap : MonoBehaviour
     {
+#pragma warning disable 649
         [SerializeField]
         private DeckDrawingSystem deckDrawingSystem;
         [SerializeField]
@@ -17,14 +18,15 @@ namespace AHC
         private EffectResolutionSystem effectResolutionSystem;
 
         [SerializeField]
-        private ManaWidget manaWidget;
+        private ResourceWidget resourceWidget;
         [SerializeField]
         private DeckWidget deckWidget;
         [SerializeField]
         private DiscardPileWidget discardPileWidget;
 
         [SerializeField]
-        private ObjectPool cardPool;
+        private ObjectPool handPool;
+#pragma warning restore 649
 
         private Camera mainCamera;
 
@@ -35,13 +37,13 @@ namespace AHC
         {
             mainCamera = Camera.main;
 
-            cardPool.Initialize();
+            handPool.Initialize();
 
             var mana = ScriptableObject.CreateInstance<IntVariable>(); // playerConfig.Mana;
             mana.Value = 3;
 
             // playerDeck = template.StartingDeck;
-            manaWidget.Initialize(mana);
+            resourceWidget.Initialize(mana);
 
             InitializeGame();
         }
@@ -52,7 +54,7 @@ namespace AHC
             var deckSize = deckDrawingSystem.LoadDeck(playerDeck);
             deckDrawingSystem.ShuffleDeck();
 
-            handPresentationSystem.Initialize(cardPool, deckWidget, discardPileWidget);
+            handPresentationSystem.Initialize(handPool, deckWidget, discardPileWidget);
 
             // effectResolutionSystem.Initialize(playerCharacter, enemyCharacter);
 

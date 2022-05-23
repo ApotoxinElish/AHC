@@ -6,12 +6,12 @@ namespace AHC
     /// <summary>
     /// The widget used to display the player's mana.
     /// </summary>
-    public class ManaWidget : MonoBehaviour
+    public class ResourceWidget : MonoBehaviour
     {
         [SerializeField]
         private TextMeshProUGUI text;
-        [SerializeField]
-        private TextMeshProUGUI textBorder;
+        // [SerializeField]
+        // private TextMeshProUGUI textBorder;
 
         private int maxValue;
 
@@ -24,7 +24,7 @@ namespace AHC
         private void SetValue(int value)
         {
             text.text = $"{value.ToString()}"; // /{maxValue.ToString()}";
-            textBorder.text = text.text;
+            // textBorder.text = text.text;
         }
 
         public void OnManaChanged(int value)
