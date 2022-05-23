@@ -13,14 +13,15 @@ namespace AHC
     /// </summary>
     public class CardObject : MonoBehaviour
     {
+#pragma warning disable 649
         [SerializeField]
         private TextMeshPro costText;
         [SerializeField]
-        private TextMeshPro nameText;
+        private TextMeshPro titleText;
         [SerializeField]
         private TextMeshPro typeText;
         [SerializeField]
-        private TextMeshPro descriptionText;
+        private TextMeshPro abilityText;
 
         [SerializeField]
         private SpriteRenderer picture;
@@ -31,6 +32,7 @@ namespace AHC
         private Color inHandColor;
         [SerializeField]
         private Color aboutToBePlayedColor;
+#pragma warning restore 649
 
         public RuntimeCard RuntimeCard;
         public CardTemplate Template;
@@ -79,14 +81,14 @@ namespace AHC
             RuntimeCard = card;
             Template = card.Template;
             costText.text = Template.Cost.ToString();
-            nameText.text = Template.Name;
+            titleText.text = Template.Name;
             typeText.text = "Spell";
             var builder = new StringBuilder();
             foreach (var effect in Template.Effects)
             {
                 builder.AppendFormat("{0}. ", effect.GetName());
             }
-            descriptionText.text = builder.ToString();
+            abilityText.text = builder.ToString();
             picture.material = Template.Material;
             picture.sprite = Template.Picture;
         }

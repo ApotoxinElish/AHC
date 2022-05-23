@@ -346,7 +346,7 @@ GameObject:
   - component: {fileID: 3613053641978988835}
   - component: {fileID: 7773190894315375576}
   m_Layer: 0
-  m_Name: NameText
+  m_Name: TitleText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -432,7 +432,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Card name
+  m_text: Card title
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -646,10 +646,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   costText: {fileID: 3662438130100510042}
-  nameText: {fileID: 7773190894315375576}
+  titleText: {fileID: 7773190894315375576}
   typeText: {fileID: 2787761525880634302}
-  descriptionText: {fileID: 981492405183802946}
-  picture: {fileID: 1889407785965767719}
+  abilityText: {fileID: 981492405183802946}
+  picture: {fileID: 8752563181783830018}
   glow: {fileID: 4052160518242966943}
   inHandColor: {r: 0.039215688, g: 0.6392157, b: 0.94509804, a: 1}
   aboutToBePlayedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
@@ -776,7 +776,7 @@ GameObject:
   - component: {fileID: 2507426092908301353}
   - component: {fileID: 981492405183802946}
   m_Layer: 0
-  m_Name: DescriptionText
+  m_Name: AbilityText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -862,7 +862,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Description.
+  m_text: Ability.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
