@@ -26,6 +26,14 @@ namespace AHC
 
         [SerializeField]
         private ObjectPool handPool;
+        [SerializeField]
+        private ObjectPool AssetPool;
+        [SerializeField]
+        private ObjectPool ThreatPool;
+        [SerializeField]
+        private ObjectPool deckPool;
+        [SerializeField]
+        private ObjectPool DiscardPool;
 #pragma warning restore 649
 
         private Camera mainCamera;
