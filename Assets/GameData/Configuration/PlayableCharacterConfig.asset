@@ -12,8 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e056d2efc4081046915b41ff0ff96f0, type: 3}
   m_Name: PlayableCharacterConfig
   m_EditorClassIdentifier: 
-  Hp: {fileID: 11400000, guid: 77cd35b6f8b7d0840a2c38f359b5bcfd, type: 2}
-  Shield: {fileID: 0}
+  Health: {fileID: 11400000, guid: 77cd35b6f8b7d0840a2c38f359b5bcfd, type: 2}
+  Sanity: {fileID: 11400000, guid: 35d2e990e2af979429668e5424c9a543, type: 2}
   Resource: {fileID: 11400000, guid: 3ae497fc88abc1349bea2f079e1d4ad3, type: 2}
-  HpWidget: {fileID: 0}
-  StatusWidget: {fileID: 0}

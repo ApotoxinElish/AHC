@@ -9,9 +9,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 33d05afacd29db946b24c3ec4273d37a, type: 3}
-  m_Name: PlayerMana
+  m_Script: {fileID: 11500000, guid: a980a37022ea66543a449a2fda94058a, type: 3}
+  m_Name: PlayerSanityChanged
   m_EditorClassIdentifier: 
-  DeveloperDescription: The mana of the player.
-  Value: 1
-  ValueChangedEvent: {fileID: 11400000, guid: e61e2f017c3175c4bb1a0e905690fabf, type: 2}

@@ -8,14 +8,14 @@ namespace AHC
         order = 0)]
     public class PlayableCharacterConfiguration : ScriptableObject
     {
-        public IntVariable Hp;
-        public IntVariable Shield;
+        public IntVariable Health;
+        public IntVariable Sanity;
 
         public IntVariable Resource;
 
         // public StatusVariable Status;
 
-        public GameObject HpWidget;
-        public GameObject StatusWidget;
+        // public GameObject HealthWidget;
+        // public GameObject StatusWidget;
     }
 }

@@ -68,7 +68,7 @@ namespace AHC
 
             playerDeck = template.StartingDeck;
 
-            var health = playerConfig.Hp;
+            var health = playerConfig.Health;
             var resource = playerConfig.Resource;
             health.Value = template.Health;
             resource.Value = template.Resource;

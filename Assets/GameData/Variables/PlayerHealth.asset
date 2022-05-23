@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 33d05afacd29db946b24c3ec4273d37a, type: 3}
-  m_Name: PlayerHp
+  m_Name: PlayerHealth
   m_EditorClassIdentifier: 
   DeveloperDescription: Developer description
-  Value: 70
-  ValueChangedEvent: {fileID: 0}
+  Value: 9
+  ValueChangedEvent: {fileID: 11400000, guid: b308e83ba3234664aacdf435a09e26e0, type: 2}
