@@ -2296,10 +2296,17 @@ MonoBehaviour:
   handPresentationSystem: {fileID: 1150562227}
   turnManagementSystem: {fileID: 179177598}
   effectResolutionSystem: {fileID: 0}
+  characterTemplate: {fileID: 0}
+  canvas: {fileID: 0}
   resourceWidget: {fileID: 1085477000555720568}
   deckWidget: {fileID: 1765413642}
   discardPileWidget: {fileID: 1964267744}
-  cardPool: {fileID: 1966249274}
+  endTurnButton: {fileID: 0}
+  handPool: {fileID: 1966249274}
+  assetPool: {fileID: 0}
+  threatPool: {fileID: 0}
+  deckPool: {fileID: 0}
+  discardPool: {fileID: 0}
   playerDeck: {fileID: 11400000, guid: c0781e8e52ec4a744ac2e98385ccaf38, type: 2}
 --- !u!1 &1858013616
 GameObject:
@@ -2541,7 +2548,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Prefab: {fileID: 4360981354106378674, guid: 6d0d2c3f3e4463646a13fcc57ef1b26b, type: 3}
-  InitialSize: 16
+  InitialSize: 5
 --- !u!1 &2024457539
 GameObject:
   m_ObjectHideFlags: 0

@@ -9,6 +9,9 @@ namespace AHC
     {
 #pragma warning disable 649
         [SerializeField]
+        private PlayableCharacterConfiguration playerConfig;
+
+        [SerializeField]
         private DeckDrawingSystem deckDrawingSystem;
         [SerializeField]
         private HandPresentationSystem handPresentationSystem;
@@ -18,28 +21,37 @@ namespace AHC
         private EffectResolutionSystem effectResolutionSystem;
 
         [SerializeField]
+        private PlayerTemplate characterTemplate;
+
+        [SerializeField]
+        private Canvas canvas;
+
+        [SerializeField]
         private ResourceWidget resourceWidget;
         [SerializeField]
         private DeckWidget deckWidget;
         [SerializeField]
         private DiscardPileWidget discardPileWidget;
+        [SerializeField]
+        private EndTurnButton endTurnButton;
 
         [SerializeField]
         private ObjectPool handPool;
         [SerializeField]
-        private ObjectPool AssetPool;
+        private ObjectPool assetPool;
         [SerializeField]
-        private ObjectPool ThreatPool;
+        private ObjectPool threatPool;
         [SerializeField]
         private ObjectPool deckPool;
         [SerializeField]
-        private ObjectPool DiscardPool;
+        private ObjectPool discardPool;
 #pragma warning restore 649
 
         private Camera mainCamera;
 
-        [SerializeField]
         private CardLibrary playerDeck;
+
+        private GameObject player;
 
         void Start()
         {
@@ -47,11 +59,24 @@ namespace AHC
 
             handPool.Initialize();
 
-            var mana = ScriptableObject.CreateInstance<IntVariable>(); // playerConfig.Mana;
-            mana.Value = 3;
+            CreatePlayer(characterTemplate);
+        }
+
+        private void CreatePlayer(PlayerTemplate template)
+        {
+            // player = Instantiate(template.Prefab, playerPivot);
+            // Assert.IsNotNull(player);
+
+            playerDeck = template.StartingDeck;
+
+            var health = playerConfig.Hp;
+            var resource = playerConfig.Resource;
+            health.Value = template.Health;
+            resource.Value = template.Resource;
 
             // playerDeck = template.StartingDeck;
-            resourceWidget.Initialize(mana);
+            // healthWidget.Initialize(health);
+            resourceWidget.Initialize(resource);
 
             InitializeGame();
         }

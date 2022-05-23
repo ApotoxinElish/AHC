@@ -11,7 +11,7 @@ namespace AHC
         public IntVariable Hp;
         public IntVariable Shield;
 
-        public IntVariable Mana;
+        public IntVariable Resource;
 
         // public StatusVariable Status;
 
