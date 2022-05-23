@@ -9,11 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6444c4822f61ed048b986dfe8b3bfafa, type: 3}
-  m_Name: Player
+  m_Script: {fileID: 11500000, guid: 33d05afacd29db946b24c3ec4273d37a, type: 3}
+  m_Name: PlayerHp
   m_EditorClassIdentifier: 
-  Name: Roland
-  Prefab: {fileID: 0}
-  Health: 9
-  Resource: 5
-  StartingDeck: {fileID: 11400000, guid: c0781e8e52ec4a744ac2e98385ccaf38, type: 2}
+  DeveloperDescription: Developer description
+  Value: 70
+  ValueChangedEvent: {fileID: 0}

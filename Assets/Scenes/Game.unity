@@ -2292,22 +2292,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38781101fdb36844aa1adc569fb905d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerConfig: {fileID: 11400000, guid: 89d7e34e4580dae4685da9179b128e9b, type: 2}
   deckDrawingSystem: {fileID: 2048879024}
   handPresentationSystem: {fileID: 1150562227}
   turnManagementSystem: {fileID: 179177598}
   effectResolutionSystem: {fileID: 0}
-  characterTemplate: {fileID: 0}
-  canvas: {fileID: 0}
+  characterTemplate: {fileID: 11400000, guid: 84de0f8b2fa70ec4091b3764083d47d8, type: 2}
+  canvas: {fileID: 94989990}
   resourceWidget: {fileID: 1085477000555720568}
   deckWidget: {fileID: 1765413642}
   discardPileWidget: {fileID: 1964267744}
-  endTurnButton: {fileID: 0}
+  endTurnButton: {fileID: 1235646202}
   handPool: {fileID: 1966249274}
   assetPool: {fileID: 0}
   threatPool: {fileID: 0}
   deckPool: {fileID: 0}
   discardPool: {fileID: 0}
-  playerDeck: {fileID: 11400000, guid: c0781e8e52ec4a744ac2e98385ccaf38, type: 2}
 --- !u!1 &1858013616
 GameObject:
   m_ObjectHideFlags: 0

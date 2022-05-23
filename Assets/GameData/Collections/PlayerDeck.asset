@@ -15,4 +15,6 @@ MonoBehaviour:
   Name: Player
   Entries:
   - Card: {fileID: 11400000, guid: 6e87d0c659bb69647b9e22d9f85cdb33, type: 2}
-    NumCopies: 12
+    NumCopies: 3
+  - Card: {fileID: 11400000, guid: 45b729234ba8e7f459579290ac16774e, type: 2}
+    NumCopies: 3
