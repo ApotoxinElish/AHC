@@ -73,10 +73,10 @@ namespace AHC
             cardSelectionSystem = FindObjectOfType<CardSelectionSystem>();
         }
 
-        private void OnEnable()
-        {
-            SetState(CardState.InHand);
-        }
+        // private void OnEnable()
+        // {
+        //     SetState(CardState.InHand);
+        // }
 
         public void SetInfo(RuntimeCard card)
         {
@@ -100,9 +100,9 @@ namespace AHC
             glow.enabled = glowEnabled;
         }
 
-        public void SetGlowEnabled(int playerMana)
+        public void SetGlowEnabled(int playerResource)
         {
-            glow.enabled = playerMana >= Template.Cost;
+            glow.enabled = playerResource >= Template.Cost;
         }
 
         public bool IsGlowEnabled()

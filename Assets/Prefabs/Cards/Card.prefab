@@ -672,7 +672,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 941384384109541781}
         m_TargetAssemblyTypeName: AHC.CardObject, Assembly-CSharp
-        m_MethodName: OnManaChanged
+        m_MethodName: OnResourceChanged
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

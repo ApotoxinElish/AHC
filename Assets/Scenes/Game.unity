@@ -1948,7 +1948,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e0d54feaa6f0e24db6532f8d820dae6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlayerMana: {fileID: 11400000, guid: 3ae497fc88abc1349bea2f079e1d4ad3, type: 2}
+  PlayerResource: {fileID: 11400000, guid: 3ae497fc88abc1349bea2f079e1d4ad3, type: 2}
   PhaseManagementSystem: {fileID: 179177598}
   DeckDrawingSystem: {fileID: 2048879024}
   HandPresentationSystem: {fileID: 1150562227}
@@ -4938,6 +4938,7 @@ GameObject:
   - component: {fileID: 1085477000555720566}
   - component: {fileID: 1085477000555720567}
   - component: {fileID: 1085477000555720568}
+  - component: {fileID: 1085477000555720569}
   m_Layer: 5
   m_Name: ResourceWidget
   m_TagString: Untagged
@@ -5032,6 +5033,34 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   text: {fileID: 1085477000412542913}
+--- !u!114 &1085477000555720569
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1085477000555720565}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59adfc892722fde4aaa649ef5b5441f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Event: {fileID: 11400000, guid: e61e2f017c3175c4bb1a0e905690fabf, type: 2}
+  Response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1085477000555720568}
+        m_TargetAssemblyTypeName: AHC.ResourceWidget, Assembly-CSharp
+        m_MethodName: OnResourceChanged
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!222 &1085477000580237808
 CanvasRenderer:
   m_ObjectHideFlags: 0

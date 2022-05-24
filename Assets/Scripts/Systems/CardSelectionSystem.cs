@@ -4,9 +4,13 @@ using UnityEngine.Rendering;
 
 namespace AHC
 {
-    public class CardSelectionSystem : BaseSystem
+    /// <summary>
+    /// This system is responsible for detecting when a card
+    /// is selected and played by the player.
+    /// </summary>
+    public class CardSelectionSystem : MonoBehaviour
     {
-        public IntVariable PlayerMana;
+        public IntVariable PlayerResource;
 
         public PhaseManagementSystem PhaseManagementSystem;
         public DeckDrawingSystem DeckDrawingSystem;
@@ -16,9 +20,6 @@ namespace AHC
         protected LayerMask CardLayer;
 
         protected GameObject SelectedCard;
-
-
-
 
         private BoxCollider2D cardArea;
 
@@ -33,47 +34,15 @@ namespace AHC
         private const float CardAboutToBePlayedOffsetY = 1.5f;
         private const Ease CardAnimationEase = Ease.OutBack;
 
-
-
-
-        protected virtual void Start()
+        protected void Start()
         {
             CardLayer = 1 << LayerMask.NameToLayer("Card");
             MainCamera = Camera.main;
-
 
             var go = GameObject.Find("CardArea");
             if (go != null)
                 cardArea = go.GetComponent<BoxCollider2D>();
         }
-
-        protected virtual void PlaySelectedCard()
-        {
-            var cardObject = SelectedCard.GetComponent<CardObject>();
-            cardObject.SetInteractable(false);
-            var cardTemplate = cardObject.Template;
-            PlayerMana.SetValue(PlayerMana.Value - cardTemplate.Cost);
-
-            HandPresentationSystem.RearrangeHand(SelectedCard);
-            HandPresentationSystem.RemoveCardFromHand(SelectedCard);
-            HandPresentationSystem.MoveCardToDiscardPile(SelectedCard);
-
-            DeckDrawingSystem.MoveCardToDiscardPile(cardObject.RuntimeCard);
-
-
-
-
-            var card = SelectedCard.GetComponent<CardObject>().RuntimeCard;
-            // EffectResolutionSystem.ResolveCardEffects(card);
-        }
-
-        public bool HasSelectedCard()
-        {
-            return SelectedCard != null;
-        }
-
-
-
 
         private void Update()
         {
@@ -111,8 +80,7 @@ namespace AHC
             {
                 var card = hitInfo.collider.GetComponent<CardObject>();
                 var cardTemplate = card.Template;
-                if (CardUtils.CardCanBePlayed(cardTemplate, PlayerMana) &&
-                    !CardUtils.CardHasTargetableEffect(cardTemplate))
+                if (CardUtils.CardCanBePlayed(cardTemplate, PlayerResource))
                 {
                     SelectedCard = hitInfo.collider.gameObject;
                     originalCardPos = SelectedCard.transform.position;
@@ -184,6 +152,28 @@ namespace AHC
                 else
                     card.SetState(CardObject.CardState.InHand);
             }
+        }
+
+        protected void PlaySelectedCard()
+        {
+            var cardObject = SelectedCard.GetComponent<CardObject>();
+            cardObject.SetInteractable(false);
+            var cardTemplate = cardObject.Template;
+            PlayerResource.SetValue(PlayerResource.Value - cardTemplate.Cost);
+
+            HandPresentationSystem.RearrangeHand(SelectedCard);
+            HandPresentationSystem.RemoveCardFromHand(SelectedCard);
+            HandPresentationSystem.MoveCardToDiscardPile(SelectedCard);
+
+            DeckDrawingSystem.MoveCardToDiscardPile(cardObject.RuntimeCard);
+
+            var card = SelectedCard.GetComponent<CardObject>().RuntimeCard;
+            // EffectResolutionSystem.ResolveCardEffects(card);
+        }
+
+        public bool HasSelectedCard()
+        {
+            return SelectedCard != null;
         }
     }
 }
