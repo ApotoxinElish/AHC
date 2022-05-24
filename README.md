@@ -108,6 +108,13 @@
   > 脚本化对象  
   > 作为可以触发整型事件的变量
 
+### Configuration
+
+> #### PlayableCharacterConfiguration
+>
+> 脚本化对象
+> 玩家组件的集合
+
 ### Effects
 
 > #### Effect
@@ -146,16 +153,18 @@
 > 牌堆摸牌系统  
 > 主要是卡牌在牌堆之间的操作，包括  
 > 读取牌库，返回牌数
+> 针对 RuntimeCard
 
 > #### HandPresentationSystem
 >
 > 手牌显示系统
 > 对手牌的显示操作
+> 针对 CardObject
 
-> #### TurnManagementSystem
+> #### PhaseManagementSystem
 >
-> 回合管理系统
-> 对游戏流程中的回合进行管理
+> 阶段管理系统
+> 对游戏流程中的阶段进行管理
 
 ### Templates
 
@@ -183,6 +192,11 @@
 > 脚本化对象
 > TODO
 
+> #### PlayerTemplate
+>
+> 脚本化对象
+> 玩家属性等，包含牌组
+
 ### UI
 
 > #### DeckWidget
@@ -200,12 +214,17 @@
 > 结束回合按钮
 > 挂载到结束回合按钮上
 
-> #### ManaWidget
+> #### ResourceWidget
 >
-> 能量部件
-> 挂载到能量组件，限制出牌
+> 资源部件
+> 挂载到资源组件，作为费用限制出牌
 
 ### Utils
+
+> #### CardUtils
+>
+> 卡牌工具
+> 静态类，出牌时检查费用
 
 > #### ListShuffle
 >
