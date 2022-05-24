@@ -154,7 +154,7 @@ namespace AHC
 
             const float angle = 5.0f;
             var cardAngle = (handCards.Count - 1) * angle / 2;
-            var z = 0.0f;
+            // var z = 0.0f;
             for (var i = 0; i < handCards.Count; ++i)
             {
                 // Rotate.
@@ -162,9 +162,9 @@ namespace AHC
                 rotations.Add(rotation);
 
                 // Move.
-                z -= 0.1f;
+                // z -= 0.1f;
                 var position = CalculateCardPosition(cardAngle - i * angle);
-                position.z = z;
+                // position.z = z;
                 positions.Add(position);
 
                 // Set sorting order.

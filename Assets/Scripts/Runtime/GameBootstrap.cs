@@ -15,7 +15,7 @@ namespace AHC
         [SerializeField]
         private HandPresentationSystem handPresentationSystem;
         [SerializeField]
-        private TurnManagementSystem turnManagementSystem;
+        private PhaseManagementSystem phaseManagementSystem;
         [SerializeField]
         private EffectResolutionSystem effectResolutionSystem;
 
@@ -36,14 +36,14 @@ namespace AHC
 
         [SerializeField]
         private ObjectPool handPool;
-        [SerializeField]
-        private ObjectPool assetPool;
-        [SerializeField]
-        private ObjectPool threatPool;
-        [SerializeField]
-        private ObjectPool deckPool;
-        [SerializeField]
-        private ObjectPool discardPool;
+        // [SerializeField]
+        // private ObjectPool assetPool;
+        // [SerializeField]
+        // private ObjectPool threatPool;
+        // [SerializeField]
+        // private ObjectPool deckPool;
+        // [SerializeField]
+        // private ObjectPool discardPool;
 #pragma warning restore 649
 
         private Camera mainCamera;
@@ -92,7 +92,7 @@ namespace AHC
 
             // effectResolutionSystem.Initialize(playerCharacter, enemyCharacter);
 
-            turnManagementSystem.BeginGame();
+            phaseManagementSystem.BeginGame();
         }
     }
 }

@@ -8,7 +8,7 @@ namespace AHC
     {
         public IntVariable PlayerMana;
 
-        public TurnManagementSystem TurnManagementSystem;
+        public PhaseManagementSystem PhaseManagementSystem;
         public DeckDrawingSystem DeckDrawingSystem;
         public HandPresentationSystem HandPresentationSystem;
 
@@ -77,7 +77,7 @@ namespace AHC
 
         private void Update()
         {
-            if (TurnManagementSystem.IsEndOfGame())
+            if (PhaseManagementSystem.IsEndOfGame())
                 return;
 
             if (HandPresentationSystem.IsAnimating())

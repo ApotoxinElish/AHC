@@ -88,6 +88,7 @@ namespace AHC
             // the deck and then draw from the deck normally.
             else
             {
+                discardPile.Shuffle();
                 for (var i = 0; i < discardPile.Count; i++)
                     deck.Add(discardPile[i]);
 

@@ -38,8 +38,8 @@ namespace AHC
 
             button.interactable = false;
 
-            var system = GameObject.FindObjectOfType<TurnManagementSystem>();
-            system.EndPlayerTurn();
+            var system = GameObject.FindObjectOfType<PhaseManagementSystem>();
+            system.EndInvestigationPhase();
         }
 
         public void OnPlayerTurnBegan()

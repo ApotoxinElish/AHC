@@ -484,7 +484,7 @@ GameObject:
   - component: {fileID: 179177597}
   - component: {fileID: 179177598}
   m_Layer: 0
-  m_Name: TurnManagementSystem
+  m_Name: PhaseManagementSystem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -516,10 +516,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5350925248c0939449d0b86acc64033c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlayerTurnBegan: {fileID: 11400000, guid: 4e6c10d0255fa854a9c699d509ddb814, type: 2}
-  PlayerTurnEnded: {fileID: 11400000, guid: 99c9fc9fcfae81d429ade088e1c4a3e9, type: 2}
-  EnemyTurnBegan: {fileID: 11400000, guid: d932a69e6f3a6df4789b0683b49fbd2d, type: 2}
-  EnemyTurnEnded: {fileID: 11400000, guid: 3655e827e501c214295b2b86d1cc4f3f, type: 2}
+  GameBegan: {fileID: 11400000, guid: b11a6ac0171cbb24cbe43248a12cc322, type: 2}
+  MythosPhaseBegan: {fileID: 11400000, guid: 81d90443dae98a94cb8f026807c51e90, type: 2}
+  MythosPhaseEnded: {fileID: 11400000, guid: 7c8229e70b14745419f6cec88e916427, type: 2}
+  InvestigationPhaseBegan: {fileID: 11400000, guid: 4e6c10d0255fa854a9c699d509ddb814, type: 2}
+  InvestigationPhaseEnded: {fileID: 11400000, guid: 99c9fc9fcfae81d429ade088e1c4a3e9, type: 2}
+  EnemyPhaseBegan: {fileID: 11400000, guid: d932a69e6f3a6df4789b0683b49fbd2d, type: 2}
+  EnemyPhaseEnded: {fileID: 11400000, guid: 3655e827e501c214295b2b86d1cc4f3f, type: 2}
+  UpkeepPhaseBegan: {fileID: 11400000, guid: d8bbe64f85c984b419510c7c12236816, type: 2}
+  UpkeepPhaseEnded: {fileID: 11400000, guid: 0deb4d1d1f79807449f93bbca696984d, type: 2}
 --- !u!1 &203179580
 GameObject:
   m_ObjectHideFlags: 0
@@ -1211,19 +1216,7 @@ MonoBehaviour:
   Event: {fileID: 11400000, guid: 99c9fc9fcfae81d429ade088e1c4a3e9, type: 2}
   Response:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1150562227}
-        m_TargetAssemblyTypeName: AHC.HandPresentationSystem, Assembly-CSharp
-        m_MethodName: MoveHandToDiscardPile
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &1150562227
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1236,7 +1229,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1522f83b8b2be10409533d9e39640438, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerMana: {fileID: 11400000, guid: 3ae497fc88abc1349bea2f079e1d4ad3, type: 2}
+  playerResource: {fileID: 11400000, guid: 3ae497fc88abc1349bea2f079e1d4ad3, type: 2}
 --- !u!1 &1235646196
 GameObject:
   m_ObjectHideFlags: 0
@@ -1956,7 +1949,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlayerMana: {fileID: 11400000, guid: 3ae497fc88abc1349bea2f079e1d4ad3, type: 2}
-  TurnManagementSystem: {fileID: 179177598}
+  PhaseManagementSystem: {fileID: 179177598}
   DeckDrawingSystem: {fileID: 2048879024}
   HandPresentationSystem: {fileID: 1150562227}
 --- !u!1 &1700999187
@@ -2295,7 +2288,7 @@ MonoBehaviour:
   playerConfig: {fileID: 11400000, guid: 89d7e34e4580dae4685da9179b128e9b, type: 2}
   deckDrawingSystem: {fileID: 2048879024}
   handPresentationSystem: {fileID: 1150562227}
-  turnManagementSystem: {fileID: 179177598}
+  phaseManagementSystem: {fileID: 179177598}
   effectResolutionSystem: {fileID: 0}
   characterTemplate: {fileID: 11400000, guid: 84de0f8b2fa70ec4091b3764083d47d8, type: 2}
   canvas: {fileID: 94989990}
@@ -2304,10 +2297,6 @@ MonoBehaviour:
   discardPileWidget: {fileID: 1964267744}
   endTurnButton: {fileID: 1235646202}
   handPool: {fileID: 1966249274}
-  assetPool: {fileID: 0}
-  threatPool: {fileID: 0}
-  deckPool: {fileID: 0}
-  discardPool: {fileID: 0}
 --- !u!1 &1858013616
 GameObject:
   m_ObjectHideFlags: 0
@@ -2548,7 +2537,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Prefab: {fileID: 4360981354106378674, guid: 6d0d2c3f3e4463646a13fcc57ef1b26b, type: 3}
-  InitialSize: 16
+  InitialSize: 5
 --- !u!1 &2024457539
 GameObject:
   m_ObjectHideFlags: 0
@@ -2728,18 +2717,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34e098b2b5da6b64186d4674fc49ebf7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Event: {fileID: 11400000, guid: 99c9fc9fcfae81d429ade088e1c4a3e9, type: 2}
+  Event: {fileID: 11400000, guid: d8bbe64f85c984b419510c7c12236816, type: 2}
   Response:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 2048879024}
         m_TargetAssemblyTypeName: AHC.DeckDrawingSystem, Assembly-CSharp
-        m_MethodName: MoveCardsToDiscardPile
-        m_Mode: 1
+        m_MethodName: DrawCardsFromDeck
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 1
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -2756,7 +2745,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34e098b2b5da6b64186d4674fc49ebf7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Event: {fileID: 11400000, guid: 4e6c10d0255fa854a9c699d509ddb814, type: 2}
+  Event: {fileID: 11400000, guid: b11a6ac0171cbb24cbe43248a12cc322, type: 2}
   Response:
     m_PersistentCalls:
       m_Calls:

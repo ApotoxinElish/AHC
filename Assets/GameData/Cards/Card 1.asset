@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Card 1
   m_EditorClassIdentifier: 
   Id: 0
-  Name: Card
-  Cost: 0
+  Title: 
+  Cost: 1
   Material: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   Picture: {fileID: 21300000, guid: bcc7ca662bd5dd84c833c446fa63a908, type: 3}
   Type: {fileID: 11400000, guid: cb8076dc410498241b878e249b008a76, type: 2}
