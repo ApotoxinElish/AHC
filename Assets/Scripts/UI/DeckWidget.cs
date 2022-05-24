@@ -3,10 +3,15 @@ using UnityEngine;
 
 namespace AHC
 {
+    /// <summary>
+    /// The widget used to display the current number of cards in the player's deck.
+    /// </summary>
     public class DeckWidget : MonoBehaviour
     {
+#pragma warning disable 649
         [SerializeField]
         private TextMeshProUGUI textLabel;
+#pragma warning restore 649
 
         private int deckSize;
 

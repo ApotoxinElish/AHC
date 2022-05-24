@@ -11,7 +11,7 @@ namespace AHC
     /// </summary>
     public class HandPresentationSystem : MonoBehaviour
     {
-        public IntVariable playerMana;
+        public IntVariable playerResource;
 
         private ObjectPool cardPool;
         private DeckWidget deckWidget;
@@ -25,9 +25,9 @@ namespace AHC
         private List<Quaternion> rotations;
         private List<int> sortingOrders;
 
-        private const int PositionsCapacity = 30;
-        private const int RotationsCapacity = 30;
-        private const int SortingOrdersCapacity = 30;
+        private const int PositionsCapacity = 10;
+        private const int RotationsCapacity = 10;
+        private const int SortingOrdersCapacity = 10;
 
         private const float CenterRadius = 16.0f;
         private readonly Vector3 centerPoint = new Vector3(0.0f, -20.5f, 0.0f);
@@ -79,7 +79,7 @@ namespace AHC
             var go = cardPool.GetObject();
             var obj = go.GetComponent<CardObject>();
             obj.SetInfo(card);
-            obj.SetGlowEnabled(playerMana.Value);
+            obj.SetGlowEnabled(playerResource.Value);
             go.transform.position = deckWidget.transform.position;
             go.transform.localScale = Vector3.zero;
 
@@ -185,7 +185,7 @@ namespace AHC
                 card.transform.DOMove(positions[i], time);
                 card.transform.DORotateQuaternion(rotations[i], time);
                 card.GetComponent<SortingGroup>().sortingOrder = sortingOrders[i];
-                card.GetComponent<CardObject>().SetGlowEnabled(playerMana.Value);
+                card.GetComponent<CardObject>().SetGlowEnabled(playerResource.Value);
                 card.GetComponent<CardObject>().CacheTransform(positions[i], rotations[i]);
             }
         }

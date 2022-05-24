@@ -16,7 +16,7 @@ namespace AHC
 
         private const int InitialDeckCapacity = 30;
         private const int InitialDiscardPileCapacity = 30;
-        private const int InitialHandCapacity = 30;
+        private const int InitialHandCapacity = 10;
 
         public void Initialize(DeckWidget deck, DiscardPileWidget discardPile)
         {
@@ -24,7 +24,7 @@ namespace AHC
             discardPileWidget = discardPile;
         }
 
-        private void Awake() // Start()
+        private void Awake()
         {
             deck = new List<RuntimeCard>(InitialDeckCapacity);
             discardPile = new List<RuntimeCard>(InitialDiscardPileCapacity);

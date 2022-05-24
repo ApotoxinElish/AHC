@@ -3,10 +3,15 @@ using UnityEngine;
 
 namespace AHC
 {
+    /// <summary>
+    /// The widget used to display the current number of cards in the player's discard pile.
+    /// </summary>
     public class DiscardPileWidget : MonoBehaviour
     {
+#pragma warning disable 649
         [SerializeField]
         private TextMeshProUGUI textLabel;
+#pragma warning restore 649
 
         private int discardPileSize;
 
