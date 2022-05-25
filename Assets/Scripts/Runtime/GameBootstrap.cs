@@ -52,7 +52,7 @@ namespace AHC
 
         private GameObject player;
 
-        void Start()
+        private void Start()
         {
             mainCamera = Camera.main;
 
