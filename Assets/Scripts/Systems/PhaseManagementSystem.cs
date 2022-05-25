@@ -4,6 +4,9 @@ namespace AHC
 {
     public class PhaseManagementSystem : MonoBehaviour
     {
+        [SerializeField]
+        private IntVariable PlayerResource;
+
         public GameEvent GameBegan;
         public GameEvent MythosPhaseBegan;
         public GameEvent MythosPhaseEnded;
@@ -104,6 +107,7 @@ namespace AHC
         {
             UpkeepPhaseBegan.Raise();
             isUpkeepPhase = true;
+            PlayerResource.SetValue(PlayerResource.Value + 1);
         }
 
         public void EndUpkeepPhase()
