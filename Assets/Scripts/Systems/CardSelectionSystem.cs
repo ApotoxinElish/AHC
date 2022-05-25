@@ -13,15 +13,16 @@ namespace AHC
         public IntVariable PlayerResource;
 
         public PhaseManagementSystem PhaseManagementSystem;
-        public DeckDrawingSystem DeckDrawingSystem;
-        public HandPresentationSystem HandPresentationSystem;
+        public DeckManagementSystem DeckDrawingSystem;
+        public CardPresentationSystem HandPresentationSystem;
 
         protected Camera MainCamera;
         protected LayerMask CardLayer;
 
         protected GameObject SelectedCard;
 
-        private BoxCollider2D cardArea;
+        [SerializeField]
+        private Transform playArea;
 
         private Vector3 originalCardPos;
         private Quaternion originalCardRot;
@@ -39,9 +40,9 @@ namespace AHC
             CardLayer = 1 << LayerMask.NameToLayer("Card");
             MainCamera = Camera.main;
 
-            var go = GameObject.Find("CardArea");
-            if (go != null)
-                cardArea = go.GetComponent<BoxCollider2D>();
+            // var pivot = GameObject.Find("PlayArea");
+            // if (pivot != null)
+            //     cardArea = pivot.transform.position;
         }
 
         private void Update()
@@ -122,7 +123,7 @@ namespace AHC
 
                     var seq = DOTween.Sequence();
                     seq.Append(SelectedCard.transform
-                        .DOMove(cardArea.bounds.center, CardAnimationTime)
+                        .DOMove(playArea.position, CardAnimationTime)
                         .SetEase(CardAnimationEase));
                     seq.AppendInterval(CardAnimationTime + 0.1f);
                     seq.AppendCallback(() =>

@@ -3,9 +3,9 @@ using UnityEngine;
 
 namespace AHC
 {
-    public class DeckDrawingSystem : MonoBehaviour
+    public class DeckManagementSystem : MonoBehaviour
     {
-        public HandPresentationSystem HandPresentationSystem;
+        public CardPresentationSystem HandPresentationSystem;
 
         private List<RuntimeCard> deck;
         private List<RuntimeCard> discardPile;

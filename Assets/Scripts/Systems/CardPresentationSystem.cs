@@ -9,7 +9,7 @@ namespace AHC
     /// This system is responsible for managing the visual state and animations of the card
     /// game objects in the player's hand.
     /// </summary>
-    public class HandPresentationSystem : MonoBehaviour
+    public class CardPresentationSystem : MonoBehaviour
     {
         public IntVariable playerResource;
 
@@ -29,9 +29,12 @@ namespace AHC
         private const int RotationsCapacity = 10;
         private const int SortingOrdersCapacity = 10;
 
-        private const float CenterRadius = 16.0f;
-        private readonly Vector3 centerPoint = new Vector3(0.0f, -20.5f, 0.0f);
-        private readonly Vector3 originalCardScale = new Vector3(0.2f, 0.2f, 1.0f);
+        [SerializeField]
+        private Transform handArea;
+        private const float CardWidth = 1.6f / 1.08f;
+        // private const float CenterRadius = 16.0f;
+        // private readonly Vector3 centerPoint = new Vector3(0.0f, -20.5f, 0.0f);
+        private readonly Vector3 originalCardScale = new Vector3(0.2f / 1.08f, 0.2f / 1.08f, 1.0f);
 
         public static float CardToDiscardPileAnimationTime = 0.3f;
 
@@ -149,22 +152,23 @@ namespace AHC
         private void ArrangeHandCards()
         {
             positions.Clear();
-            rotations.Clear();
+            // rotations.Clear();
             sortingOrders.Clear();
 
-            const float angle = 5.0f;
-            var cardAngle = (handCards.Count - 1) * angle / 2;
+            // const float angle = 5.0f;
+            // var cardAngle = (handCards.Count - 1) * angle / 2;
+            var cardOffsetX = -(handCards.Count - 1) * CardWidth / 2;
             // var z = 0.0f;
             for (var i = 0; i < handCards.Count; ++i)
             {
                 // Rotate.
-                var rotation = Quaternion.Euler(0, 0, cardAngle - i * angle);
+                var rotation = Quaternion.Euler(0, 0, 0); // cardAngle - i * angle);
                 rotations.Add(rotation);
 
                 // Move.
                 // z -= 0.1f;
-                var position = CalculateCardPosition(cardAngle - i * angle);
-                // position.z = z;
+                var position = handArea.position;
+                position.x = cardOffsetX + CardWidth * i;
                 positions.Add(position);
 
                 // Set sorting order.
@@ -220,12 +224,15 @@ namespace AHC
             handCards.Clear();
         }
 
-        private Vector3 CalculateCardPosition(float angle)
+        private Vector3 CalculateCardPosition(float index)
         {
-            return new Vector3(
-                centerPoint.x - CenterRadius * Mathf.Sin(Mathf.Deg2Rad * angle),
-                centerPoint.y + CenterRadius * Mathf.Cos(Mathf.Deg2Rad * angle),
-                0.0f);
+            // return new Vector3(
+            //     centerPoint.x - CenterRadius * Mathf.Sin(Mathf.Deg2Rad * angle),
+            //     centerPoint.y + CenterRadius * Mathf.Cos(Mathf.Deg2Rad * angle),
+            //     0.0f);
+            var position = handArea.position;
+            var max = handCards.Count;
+            return position;
         }
 
         public void UnHighlightOtherCards(GameObject x)

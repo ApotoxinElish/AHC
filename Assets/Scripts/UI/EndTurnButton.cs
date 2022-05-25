@@ -7,7 +7,7 @@ namespace AHC
     {
         private Button button;
 
-        private HandPresentationSystem handPresentationSystem;
+        private CardPresentationSystem handPresentationSystem;
         // private CardWithArrowSelectionSystem cardWithArrowSelectionSystem;
         // private CardWithoutArrowSelectionSystem cardWithoutArrowSelectionSystem;
 
@@ -18,7 +18,7 @@ namespace AHC
 
         private void Start()
         {
-            handPresentationSystem = FindObjectOfType<HandPresentationSystem>();
+            handPresentationSystem = FindObjectOfType<CardPresentationSystem>();
             // cardWithArrowSelectionSystem = FindObjectOfType<CardWithArrowSelectionSystem>();
             // cardWithoutArrowSelectionSystem = FindObjectOfType<CardWithoutArrowSelectionSystem>();
         }

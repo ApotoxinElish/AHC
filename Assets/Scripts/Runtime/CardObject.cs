@@ -46,7 +46,7 @@ namespace AHC
 
         private bool interactable;
 
-        private HandPresentationSystem handPresentationSystem;
+        private CardPresentationSystem handPresentationSystem;
         private CardSelectionSystem cardSelectionSystem;
 
         private bool beingHighlighted;
@@ -69,7 +69,7 @@ namespace AHC
 
         private void Start()
         {
-            handPresentationSystem = FindObjectOfType<HandPresentationSystem>();
+            handPresentationSystem = FindObjectOfType<CardPresentationSystem>();
             cardSelectionSystem = FindObjectOfType<CardSelectionSystem>();
         }
 

@@ -11,9 +11,9 @@ namespace AHC
         private PlayableCharacterConfiguration playerConfig;
 
         [SerializeField]
-        private DeckDrawingSystem deckDrawingSystem;
+        private DeckManagementSystem deckDrawingSystem;
         [SerializeField]
-        private HandPresentationSystem handPresentationSystem;
+        private CardPresentationSystem handPresentationSystem;
         [SerializeField]
         private PhaseManagementSystem phaseManagementSystem;
         [SerializeField]
