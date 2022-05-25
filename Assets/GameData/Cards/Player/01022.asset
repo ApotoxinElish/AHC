@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 817ca22b9cba46b4e93fcd2b754d56b5, type: 3}
-  m_Name: Card 2
+  m_Name: 01022
   m_EditorClassIdentifier: 
-  Id: 0
-  Title: 
-  Cost: 0
+  Id: 1022
+  Title: Evidence!
+  Cost: 1
   Material: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
-  Picture: {fileID: 21300000, guid: d239d306789473c4d9d4e2c526c1e93f, type: 3}
+  Picture: {fileID: 21300000, guid: bcc7ca662bd5dd84c833c446fa63a908, type: 3}
   Type: {fileID: 11400000, guid: cb8076dc410498241b878e249b008a76, type: 2}
   Effects: []

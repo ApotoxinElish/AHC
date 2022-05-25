@@ -175,7 +175,7 @@ namespace AHC
             beingHighlighted = true;
 
             sortingGroup.sortingOrder = highlightedSortingOrder;
-            transform.DOMove(cachedPos + new Vector3(0.0f, 1.0f, 0.0f), 0.05f)
+            transform.DOMove(cachedPos + new Vector3(0.0f, 35f / 108f, 0.0f), 0.05f)
                 .SetEase(Ease.OutCubic)
                 .OnComplete(() => beingHighlighted = false);
         }
