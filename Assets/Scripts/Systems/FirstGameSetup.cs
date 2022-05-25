@@ -6,6 +6,11 @@ namespace AHLCG
 {
     public class FirstGameSetup : MonoBehaviour
     {
+        private void Start()
+        {
+            Initialize();
+        }
+
         private void Initialize()
         {
             ChooseInvestigators();
