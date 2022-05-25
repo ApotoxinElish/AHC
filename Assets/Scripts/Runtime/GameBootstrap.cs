@@ -26,7 +26,7 @@ namespace AHC
         private Canvas canvas;
 
         [SerializeField]
-        private ResourceWidget resourceWidget;
+        private PlayerWidget playerWidget;
         [SerializeField]
         private DeckWidget deckWidget;
         [SerializeField]
@@ -77,7 +77,7 @@ namespace AHC
 
             // healthWidget.Initialize(health);
             // sanityWidget.Initialize(sanity);
-            resourceWidget.Initialize(resource);
+            playerWidget.Initialize(template);
 
             InitializeGame();
         }
