@@ -8,7 +8,7 @@ namespace AHLCG
     {
         private void Start()
         {
-            Initialize();
+            // Initialize();
         }
 
         private void Initialize()
@@ -22,39 +22,18 @@ namespace AHLCG
             DrawOpeningHand();
         }
 
-        private void ChooseInvestigators()
-        {
+        private void ChooseInvestigators() { }
 
-        }
+        private void GatherDecks() { }
 
-        private void GatherDecks()
-        {
+        private void ChooseLeadInvestigator() { }
 
-        }
+        private void AssembleTokenPool() { }
 
-        private void ChooseLeadInvestigator()
-        {
+        private void AssembletheChaosBag() { }
 
-        }
+        private void TakeStartingResources() { }
 
-        private void AssembleTokenPool()
-        {
-
-        }
-
-        private void AssembletheChaosBag()
-        {
-
-        }
-
-        private void TakeStartingResources()
-        {
-
-        }
-
-        private void DrawOpeningHand()
-        {
-
-        }
+        private void DrawOpeningHand() { }
     }
 }
