@@ -6,7 +6,7 @@ namespace AHLCG
 {
     public class ScenarioSetup : MonoBehaviour
     {
-        private void Initialize()
+        public void Initialize()
         {
             GatherScenarioCards();
             SetAgendaDeck();

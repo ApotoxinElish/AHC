@@ -4,7 +4,10 @@ using UnityEngine;
 
 namespace AHLCG
 {
-    public class RoundSequence : MonoBehaviour
+    /// <summary>
+    /// In-Play Game System
+    /// </summary>
+    public class GameSystem : MonoBehaviour
     {
 #pragma warning disable 649
         [SerializeField]
@@ -15,17 +18,15 @@ namespace AHLCG
         private RoundSequence roundSequence;
 #pragma warning restore 649
 
-        public void Initialize()
+        private void Start()
         {
+            firstGameSetup.Initialize();
+            scenarioSetup.Initialize();
+            roundSequence.Initialize();
 
+            BeginGame();
         }
 
-        private void BeginMythosPhase() { }
-
-        private void BeginInvestigationPhase() { }
-
-        private void BeginEnemyPhase() { }
-
-        private void BeginUpkeepPhase() { }
+        private void BeginGame() { }
     }
 }

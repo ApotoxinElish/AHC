@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace AHLCG
 {
-    public class UpkeepPhase : MonoBehaviour
+    public class UpkeepPhase : BasePhase
     {
         // Start is called before the first frame update
         void Start()
