@@ -18,6 +18,8 @@ namespace AHLCG
         private RoundSequence roundSequence;
 #pragma warning restore 649
 
+        private Investigator investigator;
+
         private void Start()
         {
             firstGameSetup.Initialize();
@@ -28,5 +30,10 @@ namespace AHLCG
         }
 
         private void BeginGame() { }
+
+        public void SetInvestigator(Investigator _investigator)
+        {
+            investigator = _investigator;
+        }
     }
 }

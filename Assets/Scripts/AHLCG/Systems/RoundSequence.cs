@@ -8,11 +8,17 @@ namespace AHLCG
     {
 #pragma warning disable 649
         [SerializeField]
-        private FirstGameSetup firstGameSetup;
+        private GameSystem gameSystem;
+
+        [Space]
         [SerializeField]
-        private ScenarioSetup scenarioSetup;
+        private BasePhase MythosPhase;
         [SerializeField]
-        private RoundSequence roundSequence;
+        private BasePhase InvestigationPhase;
+        [SerializeField]
+        private BasePhase EnemyPhase;
+        [SerializeField]
+        private BasePhase UpkeepPhase;
 #pragma warning restore 649
 
         public void Initialize()

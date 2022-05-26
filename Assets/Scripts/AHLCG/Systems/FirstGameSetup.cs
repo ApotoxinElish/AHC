@@ -6,6 +6,14 @@ namespace AHLCG
 {
     public class FirstGameSetup : MonoBehaviour
     {
+#pragma warning disable 649
+        [SerializeField]
+        private GameSystem gameSystem;
+
+        [SerializeField]
+        private Investigator investigator;
+#pragma warning restore 649
+
         public void Initialize()
         {
             ChooseInvestigators();
@@ -17,7 +25,10 @@ namespace AHLCG
             DrawOpeningHand();
         }
 
-        private void ChooseInvestigators() { }
+        private void ChooseInvestigators()
+        {
+            gameSystem.SetInvestigator(investigator);
+        }
 
         private void GatherDecks() { }
 

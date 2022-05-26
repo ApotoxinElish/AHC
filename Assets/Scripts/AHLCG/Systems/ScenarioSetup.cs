@@ -6,6 +6,11 @@ namespace AHLCG
 {
     public class ScenarioSetup : MonoBehaviour
     {
+#pragma warning disable 649
+        [SerializeField]
+        private GameSystem gameSystem;
+#pragma warning restore 649
+
         public void Initialize()
         {
             GatherScenarioCards();
